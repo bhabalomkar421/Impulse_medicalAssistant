@@ -1,0 +1,12 @@
+AUTOMATIC ACCIDENT DETECTION AND AMBULANCE RESCUE SYSTEM.
+
+Nowadays the road accidents in modern urban areas are increased to uncertain level.
+The loss of human life due to accident is to be avoided. Traffic congestion is a major fact that causes delay to 
+ambulance. 
+
+The idea behind this is to implement a system which would control mechanically the 
+traffic lights in the path of the ambulance. 
+
+Students can build a controller that identifies the location 
+of the accident spot through the sensor systems in the vehicle which determined the accident and 
+thus the controller walks through the ambulance to the spot.
