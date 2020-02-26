@@ -1,0 +1,11 @@
+latitude 1° ≈ 69 miles and that longitude varies:
+
+1° longitude = cosine (latitude) * length of degree (miles) at equator.
+
+formula to convert lat and long to points (http://mathforum.org/library/drmath/view/51833.html)
+
+x = R*(a2-a1)*(pi/180)*cos(b1)  (longitude)
+y = R*(b2-b1)*pi/180 (latitude)
+
+(a1,b1),(a2,b2) are lat and long
+r = sqrt(x^2 + y^2)
