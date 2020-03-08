@@ -1,5 +1,6 @@
 conda create --name impulse  python=3.6 -y
 pip install tensorflow==1.13.2 numpy tflearn nltk 
+<<<<<<< HEAD
 
 # Spacy Installation :- 
 conda install conda-forge spacy 
@@ -11,3 +12,6 @@ python -m spacy download en
 
 pip install numpy pandas matplotlib sklearn nltk
 pip install seaborn
+=======
+pip install sklearn Librosa
+>>>>>>> 691ea2e744c534d5b52bac6d35a12628da834d50

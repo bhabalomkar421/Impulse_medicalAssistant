@@ -1,0 +1,7 @@
+Run Gps1.2 and copy 
+line similar to $GPRMC,130305.00,A,1903.79349,N,07300.16904,E,0.289,95.89,080320,,,A*58
+and paste it in 
+
+https://rl.se/gprmc
+
+to get your exact location
