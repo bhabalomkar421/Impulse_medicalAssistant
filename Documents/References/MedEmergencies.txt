@@ -11,7 +11,7 @@ Common Medical Emergencies
     - Noisy breathing or wheezing
     - Chest is tight
 
-3. Someone Collapses
+3. Fainting
     - lost consiousness
 
 4. Fits/Seizures
@@ -24,4 +24,13 @@ Common Medical Emergencies
     - Sweating
 
 7. Stroke
-    - 
+    - Changes in face (eyes, mouth)
+    - problem while lifting arms or numbness
+    - Changed Speech
+    - Understand and repond 
+    
+8. Burns
+    - Acid or scalds
+
+9. Electrocution
+    - Severe or deep burns at high voltages
