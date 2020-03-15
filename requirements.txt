@@ -1,11 +1,18 @@
 conda create --name impulse  python=3.6 -y
 pip install tensorflow==1.13.2 numpy tflearn nltk 
 
-Speech System :- 
+# Speech System :- 
 pip install speechRecognition pyaudio
 pip install gtts
 pip install pywin32
 pip install pyttsx3
+
+
+
+# API System
+
+
+
 
 # Spacy Installation :- 
 conda install conda-forge spacy 
@@ -14,9 +21,10 @@ python -m spacy download en
 
 
 #disease prediction
- -->Installation
 pip install numpy pandas matplotlib sklearn 
 
+
+# Machine Learning 
 
 import numpy as np
 import pandas as pd

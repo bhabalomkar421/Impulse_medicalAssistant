@@ -1,0 +1,27 @@
+Common Medical Emergencies
+
+1. Bleeding
+    - unable to control the bleeding after first aid
+    - Deep wound
+    - Object in wound
+    - Bone or tissue is visible
+
+2. Breathing Difficulties
+    - Pain when taking deep breaths
+    - Noisy breathing or wheezing
+    - Chest is tight
+
+3. Someone Collapses
+    - lost consiousness
+
+4. Fits/Seizures
+
+5. Severe Pain
+
+6. Heart Attack
+    - Chest Pain
+    - Dizziness
+    - Sweating
+
+7. Stroke
+    - 
