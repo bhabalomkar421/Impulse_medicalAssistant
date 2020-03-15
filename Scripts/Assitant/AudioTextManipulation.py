@@ -17,7 +17,7 @@ def takeAudioInput():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("listening ...")
-        r.pause_threshold = 1  # seconds before sentence is said to be completed
+        r.pause_threshold = .7  # seconds before sentence is said to be completed
         r.energy_threshold = 300  # to remove background noise
         audio = r.listen(source)
 
@@ -35,7 +35,7 @@ def takeAudioInput():
 
 
 if __name__ == '__main__':
-    # speak("Good morning again")
+    #speak("Hi Ansh , Gladina , Calista , Arpit . time to start work !!")
     takeAudioInput()
 
 

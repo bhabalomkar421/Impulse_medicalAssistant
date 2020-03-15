@@ -1,17 +1,14 @@
 #include <SoftwareSerial.h>
-SoftwareSerial mySerial(9, 10);
+#include <LiquidCrystal.h>
+SoftwareSerial mySerial(12, 10);
 String inputString = "";
 boolean stringComplete = false; // whether the string is complete
 String signal = "$GPGLL";
 
-const int xpin = A3;                  // x-axis of the accelerometer
-const int ypin = A2;                  // y-axis
-const int zpin = A1;                  // z-axis (only on 3-axis models)
-
+int vib_pin=7;
 const int buzzer = 13;
-int a;
-int b;
-int c;
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(12,11,5,4,3,2);
 
 
 
@@ -19,6 +16,8 @@ int c;
  void setup() {
   Serial.begin(9600);
   mySerial.begin(9600);
+  pinMode(vib_pin,INPUT);
+   lcd.begin(16, 2);
   pinMode(buzzer, OUTPUT); // Set buzzer - pin 9 as an output
 
   // Provide ground and power by using the analog inputs as normal digital pins.
@@ -28,31 +27,24 @@ int c;
 }
 
 void loop() {
-  a=analogRead(xpin);
-  Serial.print(a);
-  if(a>350)
-  {
-    Buzzer();
-  }
+  int val;
+   lcd.begin(16, 2);
   
-  Serial.print("\t");
-  b=analogRead(ypin);
-  Serial.print(b);
-  if(b>350)
+  val=digitalRead(vib_pin);
+  if(val==1)
   {
-    Buzzer();
-  }
-  Serial.print("\t");
-  c=analogRead(zpin);
-  Serial.print(c);
-  if(c>350)
-  {
-    Buzzer();
-  }
-  Serial.println();
+   // Buzzer();
+     lcd.setCursor(0, 1);
+    lcd.print("Are You Okay?");
+    lcd.print(millis() / 1000);
+     lcd.print("If  Okay press the button");
+     Gps();
+     Gsm();
+   
+    
+   }
   
-  delay(3000);
-  Gps(); 
+   
 }
 
 
@@ -81,7 +73,7 @@ if (Serial.available()>0)
     case 's':
       mySerial.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
      delay(1000);  // Delay of 1 second
-     mySerial.println("AT+CMGS=\"+919820835824\"\r"); // Replace x with mobile number
+     mySerial.println("AT+CMGS=\"+918369051225\"\r"); // Replace x with mobile number
      delay(1000);
      
  
