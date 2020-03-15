@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 # from gui_stuff import *
 
+"""
 l1=['back_pain','constipation','abdominal_pain','diarrhoea','mild_fever','yellow_urine',
 'yellowing_of_eyes','acute_liver_failure','fluid_overload','swelling_of_stomach',
 'swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',
@@ -33,6 +34,11 @@ disease=['Fungal infection','Allergy','GERD','Chronic cholestasis','Drug Reactio
 'Heartattack','Varicoseveins','Hypothyroidism','Hyperthyroidism','Hypoglycemia','Osteoarthristis',
 'Arthritis','(vertigo) Paroymsal  Positional Vertigo','Acne','Urinary tract infection','Psoriasis',
 'Impetigo']
+"""
+
+data['prognosis'].values
+
+
 
 l2=[]
 for x in range(0,len(l1)):
@@ -57,7 +63,7 @@ X= df[l1]
 
 y = df[["prognosis"]]
 np.ravel(y)
-# print(y)
+print(y)
 
 # TRAINING DATA tr --------------------------------------------------------------------------------
 tr=pd.read_csv("Testing.csv")
@@ -138,8 +144,10 @@ def randomforest():
 
     inputtest = [l2]
     predict = clf4.predict(inputtest)
+    print(predict)
     predicted=predict[0]
-
+    print(predicted)
+    print(predicted)
     h='no'
     for a in range(0,len(disease)):
         if(predicted == a):
@@ -149,10 +157,11 @@ def randomforest():
     if (h=='yes'):
         t2.delete("1.0", END)
         t2.insert(END, disease[a])
+        print(disease[a])
     else:
         t2.delete("1.0", END)
         t2.insert(END, "Not Found")
-
+        print("Not found")
 
 def NaiveBayes():
     from sklearn.naive_bayes import GaussianNB
