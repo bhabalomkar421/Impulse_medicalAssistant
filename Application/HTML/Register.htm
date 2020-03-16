@@ -4,18 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    <style>
+        h1 {
+            background-color: transparent;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+            cursor: pointer;
+            color: rgb(0, 61, 153);
+        }
+        
+        .box {
+            color: rgb(6, 36, 7);
+            width: 350px;
+            line-height: 40px;
+            margin: auto;
+            text-align: center;
+            margin-top: 50px;
+            padding: 5px;
+            border-style: outset;
+            border-width: 5px;
+            border-radius: 16px;
+            border-color: rgb(0, 172, 230);
+        }
+        
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            background-image: url(../Images/Register.jpeg);
+            border: chartreuse;
+        }
+        
+        form {
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(247, 248, 247);
+        }
+        
+        input {
+            padding: 7px;
+            margin: 10px;
+            border-color: rgb(0, 172, 230);
+            display: inline-block;
+            border-radius: 16px;
+        }
+        
+        input[type="submit"] {
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            color: rgb(246, 248, 246);
+            background-color: rgb(0, 191, 255);
+            border-radius: 16px;
+            border-color: rgb(0, 172, 230);
+            width: 44%;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: rgb(0, 153, 255);
+            outline: none;
+            color: rgb(255, 255, 255);
+            border-radius: 20%;
+            border-style: outset;
+            border-color: rgb(0, 57, 230);
+            font-weight: bolder;
+            width: 54%;
+            font-size: 18px;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Register</h2>
-    <input type="text" name="name" placeholder="Hospital Name"><br><br>
-    <input type="text" name="id" placeholder="Hospital ID"><br><br>
-    <input type="text" name="address" placeholder="Address"><br><br>
-    <input type="phonenumber" name="phone" placeholder="Phone Number"><br><br>
-    <input type="password" name="password" placeholder="Password"><br><br>
-    <input type="password" name="confirmPassword" placeholder="Confirm Password"><br><br>
-    <input type="submit" name="submit" value="Submit">
+    <div class="box">
+        <form>
+            <h1>Register</h1>
+            <input type="text" name="name" placeholder="Hospital Name" required><br><br>
+            <input type="text" name="id" placeholder="Hospital ID" required><br><br>
+            <input type="text" name="address" placeholder="Address" required><br><br>
+            <input type="phonenumber" name="phone" placeholder="Phone Number" required><br><br>
+            <input type="password" name="password" placeholder="Password" required><br><br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required><br><br>
+            <!-- <span style=" display:block;  margin-bottom: .75em; "></span> -->
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
 </body>
 
 </html>

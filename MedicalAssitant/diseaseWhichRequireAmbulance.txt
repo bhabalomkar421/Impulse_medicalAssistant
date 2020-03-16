@@ -1,0 +1,12 @@
+heart_attack
+Accident/Injury
+pregnancy
+Hypertension
+Migraine
+Cervical spondylosis
+Paralysis
+Dengue
+Drug Reaction
+Alcoholic hepatitis
+Pneumonia
+Dimorphic hemmorhoids(piles)
