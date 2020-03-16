@@ -4,19 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <style>
+        h1 {
+            background-color: transparent;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+            cursor: pointer;
+            color: rgb(0, 61, 153);
+        }
+        
+        .box {
+            color: rgb(6, 36, 7);
+            width: 350px;
+            line-height: 40px;
+            margin: auto;
+            text-align: center;
+            margin-top: 50px;
+            padding: 5px;
+            border-style: outset;
+            border-width: 5px;
+            border-radius: 16px;
+            border-color: rgb(0, 172, 230);
+        }
+        
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            background-image: url(../Images/Register.jpeg);
+            border: chartreuse;
+        }
+        
+        form {
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(247, 248, 247);
+        }
+        
+        input {
+            padding: 7px;
+            margin: 10px;
+            border-color: rgb(0, 172, 230);
+            display: inline-block;
+            border-radius: 16px;
+            width: 200px;
+            height: 25px;
+        }
+        
+        input[type="submit"] {
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            color: rgb(246, 248, 246);
+            background-color: rgb(0, 191, 255);
+            border-radius: 16px;
+            border-color: rgb(0, 172, 230);
+            width: 44%;
+            height: 30%;
+            margin-bottom: 5%;
+            ;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: rgb(0, 153, 255);
+            outline: none;
+            color: rgb(255, 255, 255);
+            border-radius: 20%;
+            border-style: outset;
+            border-color: rgb(0, 57, 230);
+            font-weight: bolder;
+            width: 54%;
+            font-size: 18px;
+        }
+        
+        #Address {
+            padding: 7px;
+            margin: 10px;
+            border-color: rgb(0, 172, 230);
+            display: inline-block;
+            border-radius: 16px;
+            width: 350px;
+            height: 70px;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Login</h2>
-    <form id="loginForm">
+    <div class="box">
+        <h1>Login</h1>
+        <form id="loginForm">
 
-        <input type="text" class="ID" name="id" placeholder="Hospital ID"><br><br>
-        <input type="password" class="Password" name="password" placeholder="Password"><br><br>
-
-        <button type="submit" class="btn">Login</button>
-    </form>
-
+            <input type="text" class="ID" name="id" placeholder="Hospital ID"><br>
+            <input type="password" class="Password" name="password" placeholder="Password"><br>
+            <span style=" display:block;  margin-bottom: .75em; "></span>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
 
@@ -24,7 +110,6 @@
     </script>
 
     <script src="Login.js"></script>
-
 </body>
 
 </html>
