@@ -4,95 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    <style>
+        h1 {
+            background-color: transparent;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: center;
+            cursor: pointer;
+            color: rgb(0, 61, 153);
+        }
+        
+        .box {
+            color: rgb(6, 36, 7);
+            width: 350px;
+            line-height: 40px;
+            margin: auto;
+            text-align: center;
+            margin-top: 50px;
+            padding: 5px;
+            border-style: outset;
+            border-width: 5px;
+            border-radius: 16px;
+            border-color: rgb(0, 172, 230);
+        }
+        
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            background-image: url(../Images/Register.jpeg);
+            border: chartreuse;
+        }
+        
+        form {
+            margin: 10px;
+            padding: 10px;
+            background-color: rgb(247, 248, 247);
+        }
+        
+        input {
+            padding: 7px;
+            margin: 10px;
+            border-color: rgb(0, 172, 230);
+            display: inline-block;
+            border-radius: 16px;
+        }
+        
+        input[type="submit"] {
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            color: rgb(246, 248, 246);
+            background-color: rgb(0, 191, 255);
+            border-radius: 16px;
+            border-color: rgb(0, 172, 230);
+            width: 44%;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: rgb(0, 153, 255);
+            outline: none;
+            color: rgb(255, 255, 255);
+            border-radius: 20%;
+            border-style: outset;
+            border-color: rgb(0, 57, 230);
+            font-weight: bolder;
+            width: 54%;
+            font-size: 18px;
+        }
+    </style>
 </head>
-<script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
-<style>
-    * {
-        margin: 0%;
-    }
-    
-    body {
-        width: 100%;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-image: url(back2.jpg);
-    }
-    
-    .header {
-        float: right;
-        color: darkgreen;
-        margin-top: 1%;
-        font-size: 10px;
-        margin-right: 30px;
-        /* text-align: right; */
-        animation: type 3s steps(22);
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    
-    @keyframes type {
-        0% {
-            width: 0ch;
-        }
-        100% {
-            width: 9ch;
-        }
-    }
-    
-    .box {
-        clear: both;
-        float: right;
-        margin-right: 20px;
-        text-align: center;
-        /* height: 100%; */
-        width: 100px;
-        border-color: black;
-        border-style: solid;
-        color: red;
-    }
-    
-    .texting {
-        /* margin-top: 1px; */
-        border-color: transparent;
-        border-color: rgb(0, 0, 0);
-        background-color: transparent;
-        border-radius: 25%;
-        padding: 2%;
-        border-width: 1px;
-        font-size: 5px;
-        /* margin-top: 90px; */
-    }
-    
-    .fields {
-        /* height: 50%; */
-        color: black;
-        /* vertical-align: middle;
-        text-align: center; */
-        margin-left: 10%;
-    }
-</style>
 
 <body>
-    <div class="bg">
-        <div class="header">IMPULSE</div>
-
-        <div class="box">
-
-
-            <div class="fields"> <input class="texting" type="text" name="name" placeholder="Hospital Name"></div><br><br>
-            <div class="fields"> <input class="texting" type="text" name="id" placeholder="Hospital ID"></div><br><br>
-            <div class="fields"> <input class="texting" type="text" name="address" placeholder="Address"></div><br><br>
-            <div class="fields"> <input class="texting" type="phonenumber" name="phone" placeholder="Phone Number"></div><br><br>
-            <div class="fields"> <input class="texting" type="password" name="password" placeholder="Password"></div><br><br>
-            <div class="fields"> <input class="texting" type="password" name="confirmPassword" placeholder="Confirm Password"></div><br><br>
-            <div class="fields"> <input class="texting" type="submit" name="submit" value="Submit">
-
-            </div>
-        </div>
-
+    <div class="box">
+        <form>
+            <h1>Register</h1>
+            <input type="text" name="name" placeholder="Hospital Name" required><br><br>
+            <input type="text" name="id" placeholder="Hospital ID" required><br><br>
+            <input type="text" name="address" placeholder="Address" required><br><br>
+            <input type="phonenumber" name="phone" placeholder="Phone Number" required><br><br>
+            <input type="password" name="password" placeholder="Password" required><br><br>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required><br><br>
+            <!-- <span style=" display:block;  margin-bottom: .75em; "></span> -->
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
 </body>
 
 </html>
