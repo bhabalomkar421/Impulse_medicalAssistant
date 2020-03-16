@@ -19,7 +19,7 @@
     - tend to severe Wounds if any
     - support fractured parts to prevent movement
 
-6 . Electrocution
+6. Electrocution
     - Switch off current
     - Lay patient on their back
     - Loosen clothing around neck, waist
@@ -27,7 +27,7 @@
     - Give water/coffee but not alcohol
 
 7. Choking
-    
+
 8. Seizures
     - Loosen clothing around neck, waist
     - Clear Area
