@@ -6,16 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 </head>
+<script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
+<style>
+    * {
+        margin: 0%;
+    }
+    
+    body {
+        width: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-image: url(back2.jpg);
+    }
+    
+    .header {
+        float: right;
+        color: darkgreen;
+        margin-top: 1%;
+        font-size: 10px;
+        margin-right: 30px;
+        /* text-align: right; */
+        animation: type 3s steps(22);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    
+    @keyframes type {
+        0% {
+            width: 0ch;
+        }
+        100% {
+            width: 9ch;
+        }
+    }
+    
+    .box {
+        clear: both;
+        float: right;
+        margin-right: 20px;
+        text-align: center;
+        /* height: 100%; */
+        width: 100px;
+        border-color: black;
+        border-style: solid;
+        color: red;
+    }
+    
+    .texting {
+        /* margin-top: 1px; */
+        border-color: transparent;
+        border-color: rgb(0, 0, 0);
+        background-color: transparent;
+        border-radius: 25%;
+        padding: 2%;
+        border-width: 1px;
+        font-size: 5px;
+        /* margin-top: 90px; */
+    }
+    
+    .fields {
+        /* height: 50%; */
+        color: black;
+        /* vertical-align: middle;
+        text-align: center; */
+        margin-left: 10%;
+    }
+</style>
 
 <body>
-    <h2>Register</h2>
-    <input type="text" name="name" placeholder="Hospital Name"><br><br>
-    <input type="text" name="id" placeholder="Hospital ID"><br><br>
-    <input type="text" name="address" placeholder="Address"><br><br>
-    <input type="phonenumber" name="phone" placeholder="Phone Number"><br><br>
-    <input type="password" name="password" placeholder="Password"><br><br>
-    <input type="password" name="confirmPassword" placeholder="Confirm Password"><br><br>
-    <input type="submit" name="submit" value="Submit">
+    <div class="bg">
+        <div class="header">IMPULSE</div>
+
+        <div class="box">
+
+
+            <div class="fields"> <input class="texting" type="text" name="name" placeholder="Hospital Name"></div><br><br>
+            <div class="fields"> <input class="texting" type="text" name="id" placeholder="Hospital ID"></div><br><br>
+            <div class="fields"> <input class="texting" type="text" name="address" placeholder="Address"></div><br><br>
+            <div class="fields"> <input class="texting" type="phonenumber" name="phone" placeholder="Phone Number"></div><br><br>
+            <div class="fields"> <input class="texting" type="password" name="password" placeholder="Password"></div><br><br>
+            <div class="fields"> <input class="texting" type="password" name="confirmPassword" placeholder="Confirm Password"></div><br><br>
+            <div class="fields"> <input class="texting" type="submit" name="submit" value="Submit">
+
+            </div>
+        </div>
+
 </body>
 
 </html>
