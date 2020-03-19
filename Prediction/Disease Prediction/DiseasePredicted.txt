@@ -1,0 +1,13 @@
+# First Model 
+
+1.  Malaria
+2.  Dengue
+3.  Heart Attack
+4.  Hypertension
+5.  Migraine
+6.  Cervical spondylosis
+7.  Paralysis
+8.  Drug Reaction
+9.  Alcoholic hepatitis
+10. Pneumonia
+11. Dimorphic hemmorhoids(piles)
