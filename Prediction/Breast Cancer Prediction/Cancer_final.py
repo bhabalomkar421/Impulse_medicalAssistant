@@ -1,14 +1,78 @@
+import numpy as np
+import pytesseract
+from PIL import Image
+import cv2
+import re
 import pickle
-with open("BreastCancer", "rb") as f:
-    randomForest = pickle.load(f)
+import os
+import warnings
+from termcolor import colored
 
 
-model_inputs = [17.99, 10.38, 122.8, 1001, 0.1184, 0.2776, 0.3001, 0.1471, 0.2419, 0.07871, 1.095, 0.9053, 8.589, 153.4, 0.006399,
-                0.04904, 0.05373, 0.01587, 0.03003, 0.006193, 25.38, 17.33, 184.6, 2019, 0.1622, 0.6656, 0.7119, 0.2654, 0.4601]
+pytesseract.pytesseract.tesseract_cmd = r"D:\Software Setups\Tesseract-OCR\tesseract.exe"
+warnings.filterwarnings('ignore')
+
+ImagePath1 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport.png"
+ImagePath2 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport1.png"
+
+
+def get_string(img_path):
+    img = cv2.imread(img_path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Apply dilation and erosion to remove some noise
+    kernel = np.ones((1, 1), np.uint8)
+    img = cv2.dilate(img, kernel, iterations=1)
+    img = cv2.erode(img, kernel, iterations=1)
+
+    # Write image after removed noise
+    # cv2.imwrite("removed_noise.png", img)
+
+    #  Apply threshold to get image with only black and white
+    #img = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 2)
+
+    # Write the image after apply opencv to do some ...
+    cv2.imwrite("thres.png", img)
+
+    # Recognize text with tesseract for python
+    result = pytesseract.image_to_string(Image.open("thres.png"))
+
+    os.remove("thres.png")
+
+    return result
+
+
+result = get_string(ImagePath2)
+
+result = result.split("\n")
+print(result)
+final = []
+
+for sentence in result:
+    pattern = ".* : (.*)"
+    output = re.search(pattern, sentence)
+    if output:
+        final.append(output.group(1))
 
 print()
-pred = randomForest.predict([model_inputs])
-if pred[0]:
-    print("The cell is Malignant i.e its cancerus cell")
-else:
-    print("The cell is Benign i.e the patient is safe")
+name = final[0]
+age = final[1]
+sex = final[2]
+reportID = final[3]
+
+final = final[4:]
+print("\n\n\n")
+
+print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
+print()
+print("Report final resuls :- \n", final)
+
+
+# with open("BreastCancer", "rb") as f:
+#     randomForest = pickle.load(f)
+
+# pred = randomForest.predict([final])
+# if pred[0]:
+#     print(colored("The cell is Malignant i.e its cancerus cell", "red"))
+# else:
+#     print(colored("The cell is Benign i.e the patient is safe", "green"))
