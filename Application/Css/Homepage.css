@@ -181,9 +181,6 @@ button {
         /* visibility: hidden; */
         text-align: center;
     }
-    body {
-        background-color: violet;
-    }
     .logo {
         float: none;
         text-align: center;
