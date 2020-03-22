@@ -26,6 +26,7 @@ python -m spacy download en
 
 #disease prediction
 pip install numpy pandas matplotlib sklearn seaborn
+pip install plyer bs4
 
 
 # Machine Learning 
