@@ -26,7 +26,7 @@ python -m spacy download en
 
 #disease prediction
 pip install numpy pandas matplotlib sklearn seaborn
-pip install plyer bs4
+pip install plyer bs4  // for CoronaVirus stats
 
 
 # Machine Learning 
