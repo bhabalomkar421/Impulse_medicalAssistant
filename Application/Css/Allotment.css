@@ -328,10 +328,15 @@
             font-size: 150%;
             margin-left: -7%;
         }
-        /*     
-    .list3 {
-        float: left;
-    } */
+        .mini {
+            margin-top: 10%;
+            height: 50px;
+            width: 100%;
+            text-align: center;
+            font-size: 200%;
+            /* border-style: solid; */
+            /* border-bottom: #ffa500; */
+        }
         .list4 {
             float: right;
         }
