@@ -55,6 +55,11 @@ def Coronavirus():
     return render_template("index.htm")
 
 
+@app.route("/BreastCancer", methods=["POST", "GET"])
+def BreastCancer():
+    return render_template("BreastCancer.html")
+
+
 @app.route("/HeartDisease", methods=["POST", "GET"])
 def Heart_disease():
     return render_template("HeartDisease.html")
