@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import os
+
 
 # import warnings
 
@@ -15,6 +17,12 @@ with open("Models\Coronavirus_logistic", "rb") as f:
 # For Chronic kidney disease
 with open("Models\CKD_Model", "rb") as f:
     decisionTree = pickle.load(f)
+
+
+@app.route("/")
+@app.route("/home")
+def Homepage():
+    return render_template("Homepage.html")
 
 
 @app.route("/CoronavirusPrediction", methods=["POST", "GET"])
@@ -57,6 +65,12 @@ def Coronavirus():
 
 @app.route("/BreastCancer", methods=["POST", "GET"])
 def BreastCancer():
+    if request.method == "POST":
+        f = request.files['file1']
+        f.save(os.path.join(
+            "D:\\IT\\Hackathon\\Impulse\\ML Frontend\\Received_Files", f.filename))
+
+        print("***************\nUploaded Successfully\n****************")
     return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
 
 
