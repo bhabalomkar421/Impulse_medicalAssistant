@@ -10,6 +10,11 @@
         transform: translateY(6px);
     }
     
+    input::placeholder {
+        display: none;
+        visibility: hidden;
+    }
+    
     ul {
         list-style: none;
         /* background-color: red; */
@@ -62,6 +67,30 @@
         /* border-bottom: #ffa500; */
     }
     
+    .view1 {
+        position: relative;
+        top: -5px;
+        background-color: transparent;
+        border-style: solid;
+        border-color: red;
+        border-radius: 10%;
+        right: -60px;
+        padding: 5px;
+        font-size: 70%;
+    }
+    
+    .view2 {
+        position: relative;
+        top: -18px;
+        background-color: transparent;
+        border-style: solid;
+        border-color: red;
+        border-radius: 10%;
+        right: -160px;
+        padding: 5px;
+        font-size: 70%;
+    }
+    
     .main {
         /* background-color: brown; */
         height: 30vh;
@@ -95,6 +124,12 @@
     
     .text2 {
         margin-bottom: -100%;
+    }
+    
+    .text4 {
+        position: relative;
+        left: -85px;
+        bottom: -20px;
     }
     
     .block4 {
@@ -149,6 +184,10 @@
     }
     
     @media only screen and (max-width: 1420px) {
+        input::placeholder {
+            display: none;
+            visibility: visible;
+        }
         body {
             background-color: blue;
         }
@@ -157,6 +196,8 @@
             height: 30vh;
             display: flex;
             flex-direction: column;
+            flex-basis: 70%;
+            width: 90%;
             /* grid-template-columns: 28%; */
             /* align-content: center; */
             justify-content: space-around;
@@ -191,6 +232,9 @@
         .text2 {
             margin-bottom: 0%;
             margin-left: -6%;
+            /* visibility: hidden; */
+            display: none;
+            width: 90%;
         }
         .main0 {
             /* background-color: brown; */
@@ -257,15 +301,28 @@
             justify-content: center;
         }
         .logo {
-            height: 58%;
-            width: 28%;
+            height: 17%;
+            width: 17%;
+            /* max-width: 17%;
+            min-width: 17%;
+            resize: none; */
+            float: none;
+            display: grid;
+            justify-content: center;
+            justify-items: center;
+            position: relative;
+            left: -3%;
+            margin-top: 2%;
             /* text-align: center; */
         }
         hr {
             display: none;
         }
         .list2 {
-            float: left;
+            float: none;
+            display: grid;
+            justify-content: center;
+            justify-items: center;
             line-height: 80%;
             margin-top: 2%;
             font-size: 150%;

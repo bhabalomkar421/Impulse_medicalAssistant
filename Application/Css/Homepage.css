@@ -81,6 +81,12 @@
         background-color: #e67e22;
     }
     
+    .button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(6px);
+    }
+    
     .button9 {
         display: none;
     }
