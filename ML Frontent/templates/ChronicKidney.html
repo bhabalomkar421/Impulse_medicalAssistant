@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Chronic Kidney Disease Detector</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Chronic Kidney Disease Detector</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="row">
+        <div class="col-8">
+            <h2 class="text-right mt-3 font-weight-bolder">Chronic Kidney Disease Detector</h2>
+        </div>
+        <div class="col">
+            <img src="kidney.jpg" class="img-fluid" alt="Responsive image" style="width: 100px; height:100px;">
+        </div>
+    </div>
+
+
+    <br>
+    <form class="container" action="/" method="POST">
+        <!-- <div class="form-group">
+            <label for="exampleFormControlInput1" class="font-weight-bold">Enter Body Temperature : </label>
+            <input type="number" name="temperature" class="form-control" id="exampleFormControlInput1" placeholder="" required>
+        </div> -->
+        <div class="row">
+            <div class="col">
+                <div class="form-group ">
+                    <label for="sg" class="font-weight-bold">Specific gravity </label>
+                    <input type="number" name="sg" class="form-control" id="sg" placeholder="" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="font-weight-bold">Albumin</label>
+                    <input type="number" name="albumin" class="form-control" id="albumin" placeholder="" required>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group ">
+                    <label for="sc" class="font-weight-bold">Serum christening </label>
+                    <input type="number" name="sc" class="form-control" id="sc" placeholder="" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="hemoglobin" class="font-weight-bold">Hemoglobin</label>
+                    <input type="number" name="hemoglobin" class="form-control" id="hemoglobin" placeholder="" required>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group ">
+                    <label for="pcv" class="font-weight-bold">Packed cell volume </label>
+                    <input type="number" name="pcv" class="form-control" id="pcv" placeholder="" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="font-weight-bold">
+                       Hypertension </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name=" Hypertension " id="hypertension1" value="1" required>
+            <label class="form-check-label" for="hypertension1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name=" Hypertension " id="hypertension2" value="0" required>
+            <label class="form-check-label" for="hypertension1">No</label>
+        </div>
