@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, send_file
 import pickle
 import numpy as np
 import os
@@ -59,6 +59,56 @@ def NonInfected():
     return render_template("NonInfected.htm")
 
 
+@app.route("/download")
+def Download():
+    file = "static/LabReport.png"
+    return send_file(file, as_attachment=True)
+
+
+@app.route("/BreastCancer", methods=["POST", "GET"])
+def BreastCancer():
+    if request.method == "POST":
+        f = request.files['inputFile']
+        name, extension = os.path.splitext(f)
+        newFileName = "Test" + extension
+        os.rename(f, newFileName)
+        f.save(os.path.join("Received_Files", f.filename))
+
+    return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
+
+
+@app.route("/HeartDisease", methods=["POST", "GET"])
+def Heart_disease():
+    return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
+
+
+@app.route("/DiseasePrediction", methods=["POST", "GET"])
+def DiseasePrediction():
+    pass
+
+
+@app.route("/CKD", methods=["POST", "GET"])
+def CKD():
+    if request.method == "POST":
+        submitted_values = request.form
+        sg = str(float(submitted_values["sg"].strip()))
+        albumin = str(float(submitted_values["albumin"].strip()))
+        hemoglobin = str(float(submitted_values["hemoglobin"].strip()))
+        pcv = str(float(submitted_values["pcv"].strip()))
+        hypertension = str(float(submitted_values["hypertension"].strip()))
+        sc = str(float(submitted_values["sc"].strip()))
+
+        ckd_inputs1 = [sg, albumin, sc, hemoglobin, pcv, hypertension]
+        prediction = decisionTree.predict([ckd_inputs1])
+        # print("**************             ", prediction)
+        if not prediction:
+            return render_template("Infected.htm")
+        else:
+            return render_template("NonInfected.htm")
+
+    return render_template("ChronicKidney.html", title="Chronic Kidney Disease", navTitle="Chronic Kidney Disease", headText="Chronic Kidney Disease Detector", ImagePath="/static/Chronic_Kidney.png")
+
+
 @app.route("/CoronavirusPrediction", methods=["POST", "GET"])
 def Coronavirus():
     if request.method == "POST":
@@ -95,49 +145,6 @@ def Coronavirus():
             return render_template("NonInfected.htm")
 
     return render_template("Coronavirus.htm", title="Caronavirus Prediction", navTitle="COVID-19 Detector", headText="Coronavirus Probability Detector", ImagePath="/static/VirusImage.png")
-
-
-@app.route("/BreastCancer", methods=["POST", "GET"])
-def BreastCancer():
-    if request.method == "POST":
-        f = request.files['file1']
-        f.save(os.path.join(
-            "D:\\IT\\Hackathon\\Impulse\\ML Frontend\\Received_Files", f.filename))
-
-        print("***************\nUploaded Successfully\n****************")
-    return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
-
-
-@app.route("/HeartDisease", methods=["POST", "GET"])
-def Heart_disease():
-    return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
-
-
-@app.route("/DiseasePrediction", methods=["POST", "GET"])
-def DiseasePrediction():
-    pass
-
-
-@app.route("/CKD", methods=["POST", "GET"])
-def CKD():
-    if request.method == "POST":
-        submitted_values = request.form
-        sg = str(float(submitted_values["sg"].strip()))
-        albumin = str(float(submitted_values["albumin"].strip()))
-        hemoglobin = str(float(submitted_values["hemoglobin"].strip()))
-        pcv = str(float(submitted_values["pcv"].strip()))
-        hypertension = str(float(submitted_values["hypertension"].strip()))
-        sc = str(float(submitted_values["sc"].strip()))
-
-        ckd_inputs1 = [sg, albumin, sc, hemoglobin, pcv, hypertension]
-        prediction = decisionTree.predict([ckd_inputs1])
-        # print("**************             ", prediction)
-        if not prediction:
-            return render_template("Infected.htm")
-        else:
-            return render_template("NonInfected.htm")
-
-    return render_template("ChronicKidney.html", title="Chronic Kidney Disease", navTitle="Chronic Kidney Disease", headText="Chronic Kidney Disease Detector", ImagePath="/static/Chronic_Kidney.png")
 
 
 if __name__ == '__main__':
