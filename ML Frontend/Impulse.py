@@ -69,9 +69,6 @@ def Download():
 def BreastCancer():
     if request.method == "POST":
         f = request.files['inputFile']
-        name, extension = os.path.splitext(f)
-        newFileName = "Test" + extension
-        os.rename(f, newFileName)
         f.save(os.path.join("Received_Files", f.filename))
 
     return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
@@ -84,7 +81,7 @@ def Heart_disease():
 
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
 def DiseasePrediction():
-    pass
+    return render_template("DiseasePrediction.html")
 
 
 @app.route("/CKD", methods=["POST", "GET"])
