@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 import pickle
 import numpy as np
 import os
 
-
+import CurrentStats
 # import warnings
 
 app = Flask(__name__)
@@ -22,7 +22,18 @@ with open("Models\CKD_Model", "rb") as f:
 @app.route("/")
 @app.route("/home")
 def Homepage():
-    return render_template("Homepage.html")
+    cases, cured, death = CurrentStats.currentStatus()
+    return render_template("Homepage.html", cases=cases, cured=cured, death=death)
+
+
+@app.route("/infected")
+def Infected():
+    return render_template("Infected.htm")
+
+
+@app.route("/noninfected")
+def NonInfected():
+    return render_template("NonInfected.htm")
 
 
 @app.route("/CoronavirusPrediction", methods=["POST", "GET"])
@@ -54,8 +65,8 @@ def Coronavirus():
         model_inputs = [cough, cold, diarrhea,
                         sore_throat, body_pain, headache, temperature, difficult_breathing, fatigue, travelled14, travel_covid, covid_contact, age]
         prediction = logisticRegression.predict([model_inputs])[0]
-
-        if prediction:
+        # print("**************             ", prediction)
+        if not prediction:
             return render_template("Infected.htm")
         else:
             return render_template("NonInfected.htm")
@@ -97,13 +108,13 @@ def CKD():
 
         ckd_inputs1 = [sg, albumin, sc, hemoglobin, pcv, hypertension]
         prediction = decisionTree.predict([ckd_inputs1])
-        print("**************             ", prediction)
+        # print("**************             ", prediction)
         if not prediction:
             return render_template("Infected.htm")
         else:
             return render_template("NonInfected.htm")
 
-    return render_template("ChronicKidney.html", title="Chronic Kidney Disease", navTitle="Chronic Kidney Disease", headText="Chronic Kidney Disease Detector", ImagePath="/static/kidney.jpg")
+    return render_template("ChronicKidney.html", title="Chronic Kidney Disease", navTitle="Chronic Kidney Disease", headText="Chronic Kidney Disease Detector", ImagePath="/static/Chronic_Kidney.png")
 
 
 if __name__ == '__main__':

@@ -13,6 +13,19 @@
             background-color: transparent;
             text-align: center;
         }
+        
+        .mobileContent {
+            display: none;
+        }
+        
+        @media only screen and (min-device-width:320px) and (max-device-width:480px) {
+            .mobileContent {
+                display: inline;
+            }
+            .table-responsive {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -67,23 +80,39 @@
                     </tr>
                     <tr>
                         <td cellpadding="3">
-                            <h3>Total Cases : 100</h3>
+                            <h3>Total Cases : {{ cases }}</h3>
                         </td>
                         <td>
-                            <h3>Total Cured : 100</h3>
+                            <h3>Total Cured : {{ cured }}</h3>
                         </td>
                         <td>
-                            <h3>Total Death : 100</h3>
+                            <h3>Total Death : {{ death }}</h3>
                         </td>
                     </tr>
                 </thead>
             </table>
         </div>
-        <br>
-        <button type="submit" class="btn btn-primary btn-lg col-3 ml-5 " type="submit">Current Status</button>
 
-        <button type="submit" class="btn btn-primary btn-lg float-right col-3 mr-5" type="submit">COVID-19
-            Detector</button>
+        <div class="mobileContent">
+            <br>
+            <h2 class="text-center font-weight-bold">Coronavirus </h2>
+            <br>
+            <div class="card container" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center">Total Cases : {{ cases }}</li>
+                    <li class="list-group-item text-center">Total Cured : {{ cured }}</li>
+                    <li class="list-group-item text-center">Total Death : {{ death }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <a href="#"><button type="submit" class="btn btn-primary btn-lg col-4 ml-5 p-2" type="submit">Current
+                Status</button></a>
+
+        <a href="{{ url_for('Coronavirus') }}"><button type="submit"
+                class="btn btn-primary btn-lg float-right col-4 mr-5 p-2" type="submit">COVID-19
+                Detector</button></a>
     </div>
 
     <br><br>
@@ -115,8 +144,9 @@
                     <h5 class="card-title text-center">Detection</h5>
                     <br>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-warning btn-lg mx-auto" type="submit">Detect
-                            Now</button>
+                        <a href="{{ url_for('CKD') }}"><button type="submit" class="btn btn-warning btn-lg mx-auto"
+                                type="submit">Detect
+                                Now</button></a>
                     </div>
                 </div>
             </div>
@@ -126,8 +156,9 @@
                     <h5 class="card-title text-center">Breast Cancer Detection</h5>
                     <br><br>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-warning btn-lg mx-auto" type="submit">Detect
-                            Now</button>
+                        <a href="{{ url_for('BreastCancer') }}"><button type="submit"
+                                class="btn btn-warning btn-lg mx-auto" type="submit">Detect
+                                Now</button></a>
                     </div>
                 </div>
             </div>
@@ -138,8 +169,9 @@
                     <h5 class="card-title text-center">Heart Disease Detection</h5>
                     <br><br>
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-warning btn-lg mx-auto" type="submit">Detect
-                            Now</button>
+                        <a href="{{ url_for('Heart_disease') }}"><button type="submit"
+                                class="btn btn-warning btn-lg mx-auto" type="submit">Detect
+                                Now</button></a>
                     </div>
                 </div>
             </div>
