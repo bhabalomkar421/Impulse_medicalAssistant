@@ -33,16 +33,20 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">About</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-          </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url_for('Homepage') }}">Home <span
+                            class=" sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="{{ url_for('About') }}">About Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Contact') }}">Contact Us</a>
                 </li>
 
             </ul>
@@ -61,12 +65,90 @@
     <br>
     <div class="container">
 
+        <div class="card">
+            <h5 class="card-header text-center">Coronavirus Section</h5>
+            <div class="card-body">
+                <h5 class="card-title text-center">Prediction And Current Stats</h5>
+                <p class="card-text">This Section Predicts whether an individual is been infected with Coronavirus or not , Additional to that it also shows the current stats state wise.</p>
+                <div class="form-actions">
+                    <a href="{{ url_for('CurrentStatus') }}" class="btn btn-primary mx-5 btn-lg">Current Status</a>
+                    <a href=" {{ url_for('Coronavirus') }}" class="btn btn-primary btn-lg mx-5 ">Detect
+                        COVID-19</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <h5 class="card-header text-center">Disease Prediction</h5>
+            <div class="card-body">
+                <h5 class="card-title text-center">It Predicts the diseases based on the given symptoms </h5>
+                <p class="card-text text-center">The diseases are as follow</p>
 
 
+                <div class="card-deck">
+
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center">Malaria</li>
+                            <li class="list-group-item text-center">Dengue</li>
+                            <li class="list-group-item text-center">Heart Attack</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center">Hypertesion</li>
+                            <li class="list-group-item text-center">Migraine</li>
+                            <li class="list-group-item text-center">Cervical spondylosis</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center">Paralysis</li>
+                            <li class="list-group-item text-center">Drug Reaction</li>
+                            <li class="list-group-item text-center">Alcoholic hepatitis</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center">Pneumonia</li>
+                            <li class="list-group-item text-center align-middle">Dimorphic hemmorhoids(piles)
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <br>
+                <div class="form-actions">
+                    <a href="{{ url_for('DiseasePrediction') }}" class="btn btn-primary btn-lg">Track Your Symptoms
+                        Now</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <h5 class="card-header text-center">Special Predictions Center</h5>
+            <div class="card-body">
+                <h5 class="card-title text-center">Make Yourself Sure and Safe by Early Detection</h5>
+                <p class="card-text text-center">The Following Models need Medical Report inorder to predict.
+                </p>
+                <div class="form-actions">
+                    <a href="{{ url_for('BreastCancer') }}" class="btn btn-success mx-5 btn-lg">Breast Cancer</a>
+                    <a href="{{ url_for('CKD') }}" class="btn btn-warning mx-5 btn-lg">Chronic Kidney Disease</a>
+                    <a href="{{ url_for('Heart_disease') }}" class="btn btn-info mx-5 btn-lg">Heart Disease</a>
+                </div>
+            </div>
+        </div>
+
+
+        <br><br>
         <div class="form-actions">
             <a href="{{ url_for('Homepage') }}"><button type="submit" class="btn btn-primary btn-lg mx-auto"
-                         type="submit">Go Back To Home
-                    </button></a>
+                    type="submit">Go Back To Home
+                </button></a>
         </div>
 
     </div>
