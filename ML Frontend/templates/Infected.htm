@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Infected</title>
+    <style>
+        .form-actions {
+            margin: 0;
+            background-color: transparent;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,12 +39,12 @@
     </nav>
 
     <div class="card">
-        <h5 class="card-header">Danger</h5>
+        <h5 class="card-header text-center">Danger</h5>
         <div class="card-body">
-            <h5 class="card-title text-danger">You maybe suffering from Coronavirus</h5>
-            <p class="card-text">Please contact nearest hospitals</p>
+            <h5 class="card-title text-danger text-center">You maybe suffering from Coronavirus</h5>
+            <p class="card-text text-center">Please contact nearest hospitals</p>
             <div class="form-actions">
-                <a href="/" class="btn btn-danger">Return to Home</a>
+                <a href="{{ url_for('Homepage') }}" class="btn btn-danger">Return to Home</a>
             </div>
         </div>
     </div>
