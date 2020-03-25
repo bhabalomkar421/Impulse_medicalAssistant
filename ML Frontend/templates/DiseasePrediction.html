@@ -15,33 +15,81 @@
     		text-align: center;
     		margin-top: 15px;
     	}
-    	.healthProblem{
-
-    	}
+ 
     	.diseasebox{
-    		color: rgb(0, 179, 142); 
+
+    		color: rgb(0, 204, 0); 
     		font-size: 0.8rem;
-    		font-weight: 500; 
-    		background: white none repeat scroll 0% 0%; 
+    		font-weight: bold; 
+    		background: white;
+
+    		/*background: white none repeat scroll 0% 0%; */
     		margin: 0.5rem; 
-    		padding: 0.7rem; 
-    		border-radius: 8px; 
-    		box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; 
-    		transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s; 
+    		/*padding: 0.7rem; */
+    		padding-top: 1px;
+    		padding-bottom: 1px;
+    		padding-left: 1rem;
+    		padding-right: 1rem;
+    		border-style: groove;
+    		border-width: 1px;
+    		border-radius: 8px;
+    		box-shadow: 0.5px 1px black; 
+
+    		/*box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+    		/*transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s; */
     		cursor: pointer;
-    		max-width: 150px; 
+    		max-width: 200px; 
     	}
     	.diseaseSuggestion{
     		display: flex;
     		flex-wrap: wrap;
     	}
     	.bag{
-    		background: #e0e0e0;
+    		background: #e8e8e8;
     		margin-top: 20px;
     		margin-bottom : 15px; 
     	}
     	#nextBtn{
-    		
+    		margin-top: 15px;
+    	}
+    	.noneofthese{
+    		color: rgb(0, 0,0); 
+    		font-size: 0.8rem;
+    		font-weight: bold; 
+    		background: yellow;
+
+    		/*background: white none repeat scroll 0% 0%; */
+    		margin: 0.5rem; 
+    		/*padding: 0.7rem; */
+    		padding-top: 1px;
+    		padding-bottom: 1px;
+    		padding-left: 1rem;
+    		padding-right: 1rem;
+    		border-style: groove;
+    		border-width: 1px;
+    		border-radius: 8px;
+    		box-shadow: 0.5px 1px black; 
+
+    		/*box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+    		/*transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s; */
+    		cursor: pointer;
+    		max-width: 200px;
+    	}
+
+    	.test2{
+    		display: none;
+    	}
+    	.test3{
+    		display: none;
+    	}
+    	.test4{
+    		display: none;
+    	}
+    	.test5{
+    		display: none;
+    	}
+    	.test6{
+    		display: none;
     	}
 
     </style>
@@ -77,12 +125,13 @@
     	</div>
   			<label class="healthProblem"> Health Problem</label>
     			<hr>
-    			<div id="bag1" class="category_wrapper bag">
+
+    			<div class="category_wrapper bag">
+    				<div class="test1">
     				<div id="symptomsWrapper" class="diseaseSuggestion">
 	    					<button id="pk_sdk_symptoms1" class="pk-sdk-hover diseasebox">
 	    					fever
 	    					</button> 
-	    					<!-- </div> -->
 	    					<button id="pk_sdk_symptoms2" class="pk-sdk-hover diseasebox">
 	    					cough
 	    					</button>
@@ -96,306 +145,196 @@
 	    					Stomach pain	
 	    					</button>
 	    					<button id="pk_sdk_symptoms6" class="pk-sdk-hover diseasebox">
-	    					vision_problem
+	    					Vision problem
 	    					</button>
 	    					<button id="pk_sdk_symptoms7" class="pk-sdk-hover diseasebox">
-	    					Shoulder_pain
+	    					Shoulder pain
 	    					</button>
 	    					<button id="pk_sdk_symptoms8" class="pk-sdk-hover diseasebox">
 	    					Confusion
 	    					</button>
 	    					<button id="pk_sdk_symptoms9" class="pk-sdk-hover diseasebox">
-	    					Arm_pain
+	    					Arm pain
 	    					</button>
 	    					<button id="pk_sdk_symptoms10" class="pk-sdk-hover diseasebox">
-	    					itching
+	    					Itching
 	    					</button>
 	    					<button id="pk_sdk_symptoms11" class="pk-sdk-hover diseasebox">
-	    					muscle_pain
+	    					Muscle pain
 	    					</button>
 	    					<button id="pk_sdk_symptoms12" class="pk-sdk-hover diseasebox" >
-	    					depression
+	    					Depression
 	    					</button>
 	    					<button id="pk_sdk_symptoms13" class="pk-sdk-hover diseasebox" >
-	    					painful_bowel_moments
+	    					Headache
 	    					</button>
 	    					<button id="pk_sdk_symptoms14" class="pk-sdk-hover diseasebox" >
-	    					sweating
+	    					Sweating
 	    					</button>
-	    					<button id="pk_sdk_symptoms15" class="pk-sdk-hover diseasebox" >
-	    					low_heartbeat
-	    					</button>
-	    					<button id="pk_sdk_symptoms16" class="pk-sdk-hover diseasebox" >
+	    					<button id="noneof1" class="pk-sdk-hover diseasebox noneofthese" >
 	    					None of these
 	    					</button>
     					</div>   					
     				</div>
-    				<button id="nextBtn1" class="btn btn-primary">Next</button>			
-    			<div id="bag2" class="category_wrapper bag">
+    				<button id="nextBtn1" class="btn btn-primary">Next</button>	
+    			</div>
+    			<div class="test2">		
+    			<div  class="category_wrapper bag bag2">
     				<div id="symptomsWrapper" class="diseaseSuggestion">
+    						<button id="pk_sdk_symptoms15" class="pk-sdk-hover diseasebox" >
+	    					Low heartbeat
+	    					</button>
+	    					<button id="pk_sdk_symptoms16" class="pk-sdk-hover diseasebox">
+	    					Painful bowel moments
+	    					</button>
 	    					<button id="pk_sdk_symptoms17" class="pk-sdk-hover diseasebox">
-	    					decreased_appetite
+	    					Stiff neck
 	    					</button>
 	    					<button id="pk_sdk_symptoms18" class="pk-sdk-hover diseasebox">
-	    					stiff_neck
+	    					Nausea
 	    					</button>
 	    					<button id="pk_sdk_symptoms19" class="pk-sdk-hover diseasebox">
-	    					rash
+	    					Dry mouth
 	    					</button>
 	    					<button id="pk_sdk_symptoms20" class="pk-sdk-hover diseasebox">
-	    					depression
+	    					Chest pain
 	    					</button>
 	    					<button id="pk_sdk_symptoms21" class="pk-sdk-hover diseasebox">
-	    					neck_stiff
+	    					Yawning
 	    					</button>
 	    					<button id="pk_sdk_symptoms22" class="pk-sdk-hover diseasebox">
-	    					yawning
+	    					Low breath
 	    					</button>
 	    					<button id="pk_sdk_symptoms23" class="pk-sdk-hover diseasebox">
-	    					stool_pressure
+	    					Stool pressure
 	    					</button>
 	    					<button id="pk_sdk_symptoms24" class="pk-sdk-hover diseasebox">
-	    					skin_rash
+	    					Skin rash
 	    					</button>
 	    					<button id="pk_sdk_symptoms25" class="pk-sdk-hover diseasebox">
-	    					swelling
+	    					Swelling
 	    					</button>
 	    					<button id="pk_sdk_symptoms26" class="pk-sdk-hover diseasebox">
-	    					fatigue
+	    					Fatigue
 	    					</button>
 	    					<button id="pk_sdk_symptoms27" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Urine blood
 	    					</button>
 	    					<button id="pk_sdk_symptoms28" class="pk-sdk-hover diseasebox" >
-	    					Confusion
+	    					Weak
 	    					</button>
 	    					<button id="pk_sdk_symptoms29" class="pk-sdk-hover diseasebox" >
-	    					Confusion
+	    					Back pain
 	    					</button>
-	    					<button id="pk_sdk_symptoms30" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms31" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms32" class="pk-sdk-hover diseasebox" >
+	    					<button id="noneof2" class="pk-sdk-hover diseasebox noneofthese" >
 	    					None of these
 	    					</button>
     					</div>
     				</div>
     				<button id="nextBtn2" class="btn btn-primary">Next</button>
-    			<div id="bag3" class="category_wrapper bag">
+    			</div>
+    			<div class="test3">
+    			<div  class="category_wrapper bag bag3">
     				<div id="symptomsWrapper" class="diseaseSuggestion">
+    						<button id="pk_sdk_symptoms30" class="pk-sdk-hover diseasebox" >
+	    					Anal bleeding
+	    					</button>
+    						<button id="pk_sdk_symptoms31" class="pk-sdk-hover diseasebox" >
+	    					Constipation
+	    					</button>
+    						<button id="pk_sdk_symptoms32" class="pk-sdk-hover diseasebox" >
+	    					Bloody tools
+	    					</button>
 	    					<button id="pk_sdk_symptoms33" class="pk-sdk-hover diseasebox">
-	    					muscle_spasm
+	    					Fecal leakage
 	    					</button>
 	    					<button id="pk_sdk_symptoms34" class="pk-sdk-hover diseasebox">
-	    					muscle_cramps
+	    					Muscle cramps
 	    					</button>
 	    					<button id="pk_sdk_symptoms35" class="pk-sdk-hover diseasebox">
-	    					abdominal_pain
+	    					Abdominal pain
 	    					</button>
 	    					<button id="pk_sdk_symptoms36" class="pk-sdk-hover diseasebox">
-	    					weight_loss
+	    					Weight loss
 	    					</button>
 	    					<button id="pk_sdk_symptoms37" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Dizziness
 	    					</button>
 	    					<button id="pk_sdk_symptoms38" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Sweat
 	    					</button>
 	    					<button id="pk_sdk_symptoms39" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					More urine
 	    					</button>
 	    					<button id="pk_sdk_symptoms40" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Bleed
 	    					</button>
 	    					<button id="pk_sdk_symptoms41" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Neck pain
 	    					</button>
 	    					<button id="pk_sdk_symptoms42" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Rash
 	    					</button>
 	    					<button id="pk_sdk_symptoms43" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Muscle spasm
 	    					</button>
 	    					<button id="pk_sdk_symptoms44" class="pk-sdk-hover diseasebox" >
-	    					Confusion
+	    					Breath problems
 	    					</button>
-	    					<button id="pk_sdk_symptoms45" class="pk-sdk-hover diseasebox" >
-	    					Confusion
+	    					<button id="noneof3" class="pk-sdk-hover diseasebox noneofthese" >
+	    					None of these
 	    					</button>
-	    					<button id="pk_sdk_symptoms46" class="pk-sdk-hover diseasebox" >
-	    					Confusion
+    					</div>
+    				</div>
+    				<button id="nextBtn3" class="btn btn-primary">Next</button>
+    				</div>
+    			<div class="test4">
+    			<div class="category_wrapper bag bag4">
+    				<div id="symptomsWrapper" class="diseaseSuggestion">
+    						<button id="pk_sdk_symptoms45" class="pk-sdk-hover diseasebox" >
+	    					Anus swelling
+	    					</button>
+    						<button id="pk_sdk_symptoms46" class="pk-sdk-hover diseasebox" >
+	    					Thirsty
 	    					</button>
 	    					<button id="pk_sdk_symptoms47" class="pk-sdk-hover diseasebox" >
-	    					Confusion
+	    					Anus itching
 	    					</button>
-	    					<button id="pk_sdk_symptoms48" class="pk-sdk-hover diseasebox" >
-	    					None of these
+    						<button id="pk_sdk_symptoms48" class="pk-sdk-hover diseasebox" >
+	    					Decreased appetite
 	    					</button>
-    					</div>
-    				</div>
-    				<button id="nextBtn" class="btn btn-primary">Next</button>
-    			<div id="bag4" class="category_wrapper bag">
-    				<div id="symptomsWrapper" class="diseaseSuggestion">
 	    					<button id="pk_sdk_symptoms49" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Wheezing
 	    					</button>
 	    					<button id="pk_sdk_symptoms50" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Diarrhea
 	    					</button>
 	    					<button id="pk_sdk_symptoms51" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Blood o tissue
 	    					</button>
 	    					<button id="pk_sdk_symptoms52" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Neck stiff
 	    					</button>
 	    					<button id="pk_sdk_symptoms53" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Lump anus
 	    					</button>
 	    					<button id="pk_sdk_symptoms54" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Anxiety
 	    					</button>
 	    					<button id="pk_sdk_symptoms55" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Bleeding
 	    					</button>
 	    					<button id="pk_sdk_symptoms56" class="pk-sdk-hover diseasebox">
-	    					Confusion
+	    					Hives
 	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</button>
-	    					<button id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
+	    					<button id="noneof4" class="pk-sdk-hover diseasebox noneofthese" >
 	    					None of these
 	    					</button>
     					</div>
     				</div>
-    				<button id="nextBtn" class="btn btn-primary">Next</button>
-    			<div id="bag5" class="category_wrapper bag">
-    				<div id="symptomsWrapper" class="diseaseSuggestion">
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					None of these
-	    					</div>
-    					</div>
+    				<button id="nextBtn4" class="btn btn-primary">Next</button>
     				</div>
-    				<button id="nextBtn" class="btn btn-primary">Next</button>
-    			<div id="bag6" class="category_wrapper bag">
-    				<div id="symptomsWrapper" class="diseaseSuggestion">
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox">
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					Confusion
-	    					</div>
-	    					<div id="pk_sdk_symptoms" class="pk-sdk-hover diseasebox" >
-	    					None of these
-	    					</div>
-    					</div>
-    				</div>
-    				<button id="nextBtn" class="btn btn-primary">Next</button>
+    			
     	</div>
     	
     	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
