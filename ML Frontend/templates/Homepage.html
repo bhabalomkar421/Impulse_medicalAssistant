@@ -43,12 +43,11 @@
                             class=" sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('About') }}">About Us</a>
+                    <a class="nav-link" href="{{ url_for('About') }}">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('Contact') }}">Contact Us</a>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -113,7 +112,8 @@
         </div>
 
         <br>
-        <a href="#"><button type="submit" class="btn btn-primary btn-lg col-4 ml-5 p-2" type="submit">Current
+        <a href="{{ url_for('CurrentStatus') }}"><button type="submit" class="btn btn-primary btn-lg col-4 ml-5 p-2"
+                type="submit">Current
                 Status</button></a>
 
         <a href="{{ url_for('Coronavirus') }}"><button type="submit"
@@ -132,7 +132,7 @@
             <h5 class="card-text ">It Predicts Whether you have Dengue, Heart-Attack, Paralysis , Hypertension and much more
             </h5>
             <br>
-            <a href="#" class="btn btn-primary">Track Now</a>
+            <a href="#" class="btn btn-primary btn-lg">Track Now</a>
         </div>
         <div class="card-footer text-muted">
             The Accuracy of Prediction is 95%

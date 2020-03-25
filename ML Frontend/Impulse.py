@@ -26,6 +26,19 @@ def Homepage():
     return render_template("Homepage.html", cases=cases, cured=cured, death=death)
 
 
+@app.route("/currentstats", methods=["POST", "GET"])
+def CurrentStatus():
+    cases, cured, death = CurrentStats.currentStatus()
+    scases = scured = sdeath = 0
+    state = ""
+    if request.method == "POST":
+        # print(request.form)
+        formDict = request.form
+        state = formDict['state']
+        scases, scured, sdeath = CurrentStats.StateStatus(state)
+    return render_template("CoronavirusState.html", state=state, scases=scases, scured=scured, sdeath=sdeath, cases=cases, cured=cured, death=death, title="Current Statistics", navTitle="Current Status", headText="Caronavirus Current Stats Statewise", ImagePath="/static/Virus.png")
+
+
 @app.route("/about")
 def About():
     return render_template("About.html")
@@ -97,7 +110,7 @@ def BreastCancer():
 
 @app.route("/HeartDisease", methods=["POST", "GET"])
 def Heart_disease():
-    return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/heart.png")
+    return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
 
 
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
