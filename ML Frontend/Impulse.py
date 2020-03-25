@@ -1,17 +1,39 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 import pickle
+import numpy as np
+import os
+
+import CurrentStats
+# import warnings
 
 app = Flask(__name__)
 
 
+# For Coronavirus
 with open("Models\Coronavirus_logistic", "rb") as f:
     logisticRegression = pickle.load(f)
 
-model_inputs = [0, 0, 1, 1, 1, 0, 1, 0, 0, 3, 0, 0, 2]
-model_inputs1 = [0, 1, 0, 0, 0, 1, 0, 0, 2, 3, 3, 3, 2]
+
+# For Chronic kidney disease
+with open("Models\CKD_Model", "rb") as f:
+    decisionTree = pickle.load(f)
 
 
-prediction = logisticRegression.predict_proba([model_inputs])[0][1]
+@app.route("/")
+@app.route("/home")
+def Homepage():
+    cases, cured, death = CurrentStats.currentStatus()
+    return render_template("Homepage.html", cases=cases, cured=cured, death=death)
+
+
+@app.route("/infected")
+def Infected():
+    return render_template("Infected.htm")
+
+
+@app.route("/noninfected")
+def NonInfected():
+    return render_template("NonInfected.htm")
 
 
 @app.route("/CoronavirusPrediction", methods=["POST", "GET"])
@@ -43,26 +65,29 @@ def Coronavirus():
         model_inputs = [cough, cold, diarrhea,
                         sore_throat, body_pain, headache, temperature, difficult_breathing, fatigue, travelled14, travel_covid, covid_contact, age]
         prediction = logisticRegression.predict([model_inputs])[0]
-
-        print(model_inputs)
-        print("*******************          ", prediction)
-
-        if prediction:
+        # print("**************             ", prediction)
+        if not prediction:
             return render_template("Infected.htm")
         else:
             return render_template("NonInfected.htm")
 
-    return render_template("index.htm")
+    return render_template("Coronavirus.htm", title="Caronavirus Prediction", navTitle="COVID-19 Detector", headText="Coronavirus Probability Detector", ImagePath="/static/VirusImage.png")
 
 
 @app.route("/BreastCancer", methods=["POST", "GET"])
 def BreastCancer():
-    return render_template("BreastCancer.html")
+    if request.method == "POST":
+        f = request.files['file1']
+        f.save(os.path.join(
+            "D:\\IT\\Hackathon\\Impulse\\ML Frontend\\Received_Files", f.filename))
+
+        print("***************\nUploaded Successfully\n****************")
+    return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
 
 
 @app.route("/HeartDisease", methods=["POST", "GET"])
 def Heart_disease():
-    return render_template("HeartDisease.html")
+    return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/heart.png")
 
 
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
@@ -72,7 +97,24 @@ def DiseasePrediction():
 
 @app.route("/CKD", methods=["POST", "GET"])
 def CKD():
-    return render_template("ChronicKidney.html")
+    if request.method == "POST":
+        submitted_values = request.form
+        sg = str(float(submitted_values["sg"].strip()))
+        albumin = str(float(submitted_values["albumin"].strip()))
+        hemoglobin = str(float(submitted_values["hemoglobin"].strip()))
+        pcv = str(float(submitted_values["pcv"].strip()))
+        hypertension = str(float(submitted_values["hypertension"].strip()))
+        sc = str(float(submitted_values["sc"].strip()))
+
+        ckd_inputs1 = [sg, albumin, sc, hemoglobin, pcv, hypertension]
+        prediction = decisionTree.predict([ckd_inputs1])
+        # print("**************             ", prediction)
+        if not prediction:
+            return render_template("Infected.htm")
+        else:
+            return render_template("NonInfected.htm")
+
+    return render_template("ChronicKidney.html", title="Chronic Kidney Disease", navTitle="Chronic Kidney Disease", headText="Chronic Kidney Disease Detector", ImagePath="/static/Chronic_Kidney.png")
 
 
 if __name__ == '__main__':
