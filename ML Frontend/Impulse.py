@@ -26,6 +26,16 @@ def Homepage():
     return render_template("Homepage.html", cases=cases, cured=cured, death=death)
 
 
+@app.route("/about")
+def About():
+    return render_template("About.html")
+
+
+@app.route("/contact")
+def Contact():
+    return render_template("Contact.html")
+
+
 @app.route("/infected")
 def Infected():
     return render_template("Infected.htm")
@@ -66,7 +76,7 @@ def Coronavirus():
                         sore_throat, body_pain, headache, temperature, difficult_breathing, fatigue, travelled14, travel_covid, covid_contact, age]
         prediction = logisticRegression.predict([model_inputs])[0]
         # print("**************             ", prediction)
-        if not prediction:
+        if prediction:
             return render_template("Infected.htm")
         else:
             return render_template("NonInfected.htm")
