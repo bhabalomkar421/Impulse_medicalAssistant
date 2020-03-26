@@ -13,6 +13,16 @@
         html {
             scroll-behavior: smooth;
             }
+
+        .ale{
+            margin-bottom: 15px;
+            margin-top: 20px;
+            display: none;            
+            font-weight: bold;
+            background-color: red;
+            color: black;
+        }
+
         .diseasebox {
             color: rgb(0, 204, 0);
             font-size: 1.5rem;
@@ -139,6 +149,11 @@
     </nav>
     <div class="container">
         <br>
+        <div id="alert" class="ale">
+        <div class="alert alert-danger" role="alert">
+            Please Enter minimum 5 and maximum 8 symptoms!!!
+        </div>
+        </div>
         <div class="row">
             <div class="col-4">
                 <img src="../static/Science.png" class="img-fluid float-right mx-0" alt="Responsive image" style="width: 150px; height:100px;">
@@ -380,7 +395,7 @@
                 </div>
             </div>
             <div class="form-actions">
-                <button id="nextBtn4" class="btn btn-primary btn-lg">Submit</button>
+                <a href="#alert"><button id="nextBtn4" class="btn btn-primary btn-lg">Submit</button></a>
             </div>
         </div>
 

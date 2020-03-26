@@ -1,4 +1,3 @@
-
 document.getElementById("pk_sdk_symptoms1").addEventListener("click",fun);
 document.getElementById("pk_sdk_symptoms2").addEventListener("click",fun);
 document.getElementById("pk_sdk_symptoms3").addEventListener("click",fun);
@@ -239,28 +238,39 @@ var s = "pk_sdk_symptoms";
 var symp = ["fever","cough","vomiting","cold","stomach_pain","vision_problem","shoulder_pain","confusion","arm_pain","itching","muscle_pain","depression","headache","headache","sweating","low_heartbeat","painful_bowel_moments","stiff_neck","nausea","dry_mouth","chest_pain","yawning","low_breath","stool_pressure","skin_rash","swelling","fatigue","urine_blood","weak","back_pain","anal_bleeding","constipation","bloody_stools","fecal_leakage","muscle_cramps","abdominal_pain","weight_loss","dizziness","sweat","more_urine","bleed","neck_pain","rash","muscle_pain","breath_problems","anus_swelling","thirsty","anus_itching","decreased_appetite","wheezing","diarrhea","blood_o_tissue","neck_stiff","lump_anus","anxiety","bleeding","hives"]
 n4.addEventListener("click",function(){
 	var p = []	
-	for(var i = 0;i<symp.length;i++){
-		j = i + 1;
-		s = s + j.toString();
-		if(document.getElementById(s).style.background == "rgb(0, 204, 0)"){
-			console.log(symp[i+1]);
-			p.push(symp[i+1]);
+	try{
+		for(var i = 0;i<symp.length;i++){
+			j = i + 1;
+			s = s + j.toString();
+			if(document.getElementById(s).style.background == "rgb(0, 204, 0)"){
+				console.log(symp[j]);
+				p.push(symp[j]);
+			}
+			if(i==55){
+				funny(p);
+			}
+			console.log(p);
+			s = "pk_sdk_symptoms";
 		}
-		console.log(p);
-		s = "pk_sdk_symptoms";
 	}
-	console.log(p);
+
+	catch(err){
+		console.log(err);
+	}
+
+
+	function funny(p){
+		if(p.length < 5){
+		document.querySelector("#alert").style.display="inline";
+		console.log(p.length);
+		console.log("working");
+		}
+		if(p.length >= 9){
+		document.querySelector("#alert").style.display="inline";
+		console.log(p.length);
+		console.log("working");
+		}
+	}
+	
+
 });
-
-
-// for(var i = 1;i<=56;i++){
-// 	s = "pk_sdk_symptoms";
-// 	s = s + i;
-// 	if(document.getElementById(s).style.background == "rgb(255, 255, 255)"){
-// 		console.log(this.style.text);
-// 		console.log("cv");
-
-// 	}
-// 	else{console.log("fd");}
-// 	s = "pk_sdk_symptoms";
-// }
