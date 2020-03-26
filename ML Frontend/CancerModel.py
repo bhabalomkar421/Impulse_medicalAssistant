@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 ImagePath1 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport.png"
 ImagePath2 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport1.png"
-ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\static\chalja.jpg"
+ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\Sample2.png"
 
 
 def get_string(img_path):
@@ -33,12 +33,12 @@ def get_string(img_path):
     #img = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 2)
 
     # Write the image after apply opencv to do some ...
-    cv2.imwrite("thres.png", img)
+    # cv2.imwrite("thres.png", img)
 
     # Recognize text with tesseract for python
-    result = pytesseract.image_to_string(Image.open("thres.png"))
-
-    os.remove("thres.png")
+    # result = pytesseract.image_to_string(Image.open("thres.png"))
+    result = pytesseract.image_to_string(img_path)
+    # os.remove("thres.png")
 
     return result
 
@@ -58,17 +58,17 @@ def Predict(ImagePath1):
             final.append(output.group(1))
 
     print()
-    name = final[0]
-    age = final[1]
-    sex = final[2]
-    reportID = final[3]
+    # name = final[0]
+    # age = final[1]
+    # sex = final[2]
+    # reportID = final[3]
 
     # final = final[:-29]
-    final = final[4:]
+    final = final[2:]
     print(final)
     print("\n\n\n")
 
-    print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
+    # print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
     print()
     print("Report final resuls :- \n", final)
 
