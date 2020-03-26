@@ -1,6 +1,5 @@
 # This Program gives Current stats of conoravirus cases and death by fetching it from government website
 
-from plyer import notification
 import requests
 from bs4 import BeautifulSoup
 import time
