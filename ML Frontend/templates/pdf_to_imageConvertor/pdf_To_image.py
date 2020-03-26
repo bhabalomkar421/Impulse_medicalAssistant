@@ -6,7 +6,7 @@ from pdf2image.exceptions import (
 	PDFSyntaxError
 )
 with tempfile.TemporaryDirectory() as path:
-	images_from_path = convert_from_path('/home/omkar/Documents/Impulse_medicalAssistant/ML Frontend/templates/pdf_to_imageConvertor/pdfTest.pdf', output_folder='/home/omkar/Documents/Impulse_medicalAssistant/ML Frontend/templates/pdf_to_imageConvertor')
+	images_from_path = convert_from_path('/home/omkar/Documents/Impulse_medicalAssistant/ML Frontend/templates/pdf_to_imageConvertor/pdfTest.pdf', output_folder='/home/omkar/Documents/Impulse_medicalAssistant/ML Frontend/templates/pdf_to_imageConvertor/output')
 for image in images_from_path:
     image.save('sample.png','PNG')
 print("working")
