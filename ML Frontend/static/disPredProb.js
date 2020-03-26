@@ -258,7 +258,7 @@ n4.addEventListener("click",function(){
 		console.log(err);
 	}
 
-
+	});
 	function funny(p){
 		if(p.length < 5){
 		document.querySelector("#alert").style.display="inline";
@@ -273,4 +273,3 @@ n4.addEventListener("click",function(){
 	}
 	
 
-});
