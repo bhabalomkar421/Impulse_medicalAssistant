@@ -14,6 +14,7 @@ warnings.filterwarnings('ignore')
 
 ImagePath1 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport.png"
 ImagePath2 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport1.png"
+ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\static\chalja.jpg"
 
 
 def get_string(img_path):
@@ -42,37 +43,47 @@ def get_string(img_path):
     return result
 
 
-result = get_string(ImagePath2)
+def Predict(ImagePath1):
+    result = get_string(ImagePath1)
 
-result = result.split("\n")
-print(result)
-final = []
+    result = result.split("\n")
+    print(result)
+    final = []
 
-for sentence in result:
-    pattern = ".* : (.*)"
-    output = re.search(pattern, sentence)
-    if output:
-        final.append(output.group(1))
+    final = result[-29:]
+    # for sentence in result:
+    #     pattern = ".* : (.*)"
+    #     output = re.search(pattern, sentence)
+    #     if output:
+    #         final.append(output.group(1))
 
-print()
-name = final[0]
-age = final[1]
-sex = final[2]
-reportID = final[3]
+    # print()
+    # name = final[0]
+    # age = final[1]
+    # sex = final[2]
+    # reportID = final[3]
 
-final = final[4:]
-print("\n\n\n")
+    # final = final[:-29]
+    print(final)
+    print("\n\n\n")
 
-print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
-print()
-print("Report final resuls :- \n", final)
+    # print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
+    # print()
+    # print("Report final resuls :- \n", final)
+
+    with open("Models/BreastCancer", "rb") as f:
+        randomForest = pickle.load(f)
+
+    pred = randomForest.predict([final])
+    if pred[0]:
+        print()
+        print(colored("The cell is Malignant i.e its cancerus cell", "red"))
+        return 1
+    else:
+        print()
+        print(colored("The cell is Benign i.e the patient is safe", "green"))
+        return 2
 
 
-# with open("BreastCancer", "rb") as f:
-#     randomForest = pickle.load(f)
-
-# pred = randomForest.predict([final])
-# if pred[0]:
-#     print(colored("The cell is Malignant i.e its cancerus cell", "red"))
-# else:
-#     print(colored("The cell is Benign i.e the patient is safe", "green"))
+if __name__ == '__main__':
+    Predict(ImagePath3)

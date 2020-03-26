@@ -4,6 +4,7 @@ import numpy as np
 import os
 
 import CurrentStats
+import CancerModel
 # import warnings
 
 app = Flask(__name__)
@@ -74,7 +75,16 @@ def BreastCancer():
         print(extension)
         if extension == ".png" or extension == ".jpg" or extension == ".jpeg":
             print("File Saved !")
-            f.save(os.path.join("Received_Files", f.filename))
+            location = os.path.join("Received_Files", f.filename)
+            f.save(location)
+            prediction = CancerModel.Predict(
+                os.path.join("Received_Files", f.filename))
+            print(prediction)
+            if prediction:
+                return render_template("Infected.htm")
+            else:
+                return render_template("NonInfected.htm")
+
         else:
             flash("Please upload files with extension 'png' , 'jpg' or 'jpeg'")
     return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
