@@ -27,6 +27,12 @@ def Homepage():
     return render_template("Homepage.html", cases=cases, cured=cured, death=death)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """Return a custom 404 error."""
+    return 'Sorry, nothing at this URL.', 404
+
+
 @app.route("/currentstats", methods=["POST", "GET"])
 def CurrentStatus():
     cases, cured, death = CurrentStats.currentStatus()

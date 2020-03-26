@@ -12,17 +12,17 @@
     <style type="text/css">
         html {
             scroll-behavior: smooth;
-            }
-
-        .ale{
+        }
+        
+        .ale {
             margin-bottom: 15px;
             margin-top: 20px;
-            display: none;            
+            display: none;
             font-weight: bold;
             background-color: red;
             color: black;
         }
-
+        
         .diseasebox {
             color: rgb(0, 204, 0);
             font-size: 1.5rem;
@@ -126,33 +126,36 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Disease Prediction</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+    <div id="navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Disease Prediction</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('Homepage') }}">Home <span
-							class=" sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('About') }}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('Contact') }}">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('Homepage') }}">Home <span
+                                class=" sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('About') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('Contact') }}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div class="container">
         <br>
         <div id="alert" class="ale">
-        <div class="alert alert-danger" role="alert">
-            Please Enter minimum 5 and maximum 8 symptoms!!!
-        </div>
+            <br>
+            <div class="alert alert-danger text-center" role="alert">
+                Please Enter minimum 5 and maximum 8 symptoms!!!
+            </div>
         </div>
         <div class="row">
             <div class="col-4">
@@ -172,50 +175,50 @@
             <div class="test1">
                 <div id="symptomsWrapper" class="diseaseSuggestion">
                     <button id="pk_sdk_symptoms1" class="pk-sdk-hover diseasebox">
-						Fever
-					</button>
+                        Fever
+                    </button>
                     <button id="pk_sdk_symptoms2" class="pk-sdk-hover diseasebox">
-						Cough
-					</button>
+                        Cough
+                    </button>
                     <button id="pk_sdk_symptoms3" class="pk-sdk-hover diseasebox">
-						Vomiting
-					</button>
+                        Vomiting
+                    </button>
                     <button id="pk_sdk_symptoms4" class="pk-sdk-hover diseasebox">
-						Cold
-					</button>
+                        Cold
+                    </button>
                     <button id="pk_sdk_symptoms5" class="pk-sdk-hover diseasebox">
-						Stomach pain
-					</button>
+                        Stomach pain
+                    </button>
                     <button id="pk_sdk_symptoms6" class="pk-sdk-hover diseasebox">
-						Vision problem
-					</button>
+                        Vision problem
+                    </button>
                     <button id="pk_sdk_symptoms7" class="pk-sdk-hover diseasebox">
-						Shoulder pain
-					</button>
+                        Shoulder pain
+                    </button>
                     <button id="pk_sdk_symptoms8" class="pk-sdk-hover diseasebox">
-						Confusion
-					</button>
+                        Confusion
+                    </button>
                     <button id="pk_sdk_symptoms9" class="pk-sdk-hover diseasebox">
-						Arm pain
-					</button>
+                        Arm pain
+                    </button>
                     <button id="pk_sdk_symptoms10" class="pk-sdk-hover diseasebox">
-						Itching
-					</button>
+                        Itching
+                    </button>
                     <button id="pk_sdk_symptoms11" class="pk-sdk-hover diseasebox">
-						Muscle pain
-					</button>
+                        Muscle pain
+                    </button>
                     <button id="pk_sdk_symptoms12" class="pk-sdk-hover diseasebox">
-						Depression
-					</button>
+                        Depression
+                    </button>
                     <button id="pk_sdk_symptoms13" class="pk-sdk-hover diseasebox">
-						Headache
-					</button>
+                        Headache
+                    </button>
                     <button id="pk_sdk_symptoms14" class="pk-sdk-hover diseasebox">
-						Sweating
-					</button>
+                        Sweating
+                    </button>
                     <button id="noneof1" class="pk-sdk-hover diseasebox noneofthese">
-						None of these
-					</button>
+                        None of these
+                    </button>
                 </div>
             </div>
             <br>
@@ -231,53 +234,53 @@
             <div class="category_wrapper bag bag2">
                 <div id="symptomsWrapper" class="diseaseSuggestion">
                     <button id="pk_sdk_symptoms15" class="pk-sdk-hover diseasebox">
-						Low heartbeat
-					</button>
+                        Low heartbeat
+                    </button>
                     <button id="pk_sdk_symptoms16" class="pk-sdk-hover diseasebox">
-						Painful bowel moments
-					</button>
+                        Painful bowel moments
+                    </button>
                     <button id="pk_sdk_symptoms17" class="pk-sdk-hover diseasebox">
-						Stiff neck
-					</button>
+                        Stiff neck
+                    </button>
                     <button id="pk_sdk_symptoms18" class="pk-sdk-hover diseasebox">
-						Nausea
-					</button>
+                        Nausea
+                    </button>
                     <button id="pk_sdk_symptoms19" class="pk-sdk-hover diseasebox">
-						Dry mouth
-					</button>
+                        Dry mouth
+                    </button>
                     <button id="pk_sdk_symptoms20" class="pk-sdk-hover diseasebox">
-						Chest pain
-					</button>
+                        Chest pain
+                    </button>
                     <button id="pk_sdk_symptoms21" class="pk-sdk-hover diseasebox">
-						Yawning
-					</button>
+                        Yawning
+                    </button>
                     <button id="pk_sdk_symptoms22" class="pk-sdk-hover diseasebox">
-						Low breath
-					</button>
+                        Low breath
+                    </button>
                     <button id="pk_sdk_symptoms23" class="pk-sdk-hover diseasebox">
-						Stool pressure
-					</button>
+                        Stool pressure
+                    </button>
                     <button id="pk_sdk_symptoms24" class="pk-sdk-hover diseasebox">
-						Skin rash
-					</button>
+                        Skin rash
+                    </button>
                     <button id="pk_sdk_symptoms25" class="pk-sdk-hover diseasebox">
-						Swelling
-					</button>
+                        Swelling
+                    </button>
                     <button id="pk_sdk_symptoms26" class="pk-sdk-hover diseasebox">
-						Fatigue
-					</button>
+                        Fatigue
+                    </button>
                     <button id="pk_sdk_symptoms27" class="pk-sdk-hover diseasebox">
-						Urine blood
-					</button>
+                        Urine blood
+                    </button>
                     <button id="pk_sdk_symptoms28" class="pk-sdk-hover diseasebox">
-						Weak
-					</button>
+                        Weak
+                    </button>
                     <button id="pk_sdk_symptoms29" class="pk-sdk-hover diseasebox">
-						Back pain
-					</button>
+                        Back pain
+                    </button>
                     <button id="noneof2" class="pk-sdk-hover diseasebox noneofthese">
-						None of these
-					</button>
+                        None of these
+                    </button>
                 </div>
             </div>
             <div class="form-actions">
@@ -293,53 +296,53 @@
             <div class="category_wrapper bag bag3">
                 <div id="symptomsWrapper" class="diseaseSuggestion">
                     <button id="pk_sdk_symptoms30" class="pk-sdk-hover diseasebox">
-						Anal bleeding
-					</button>
+                        Anal bleeding
+                    </button>
                     <button id="pk_sdk_symptoms31" class="pk-sdk-hover diseasebox">
-						Constipation
-					</button>
+                        Constipation
+                    </button>
                     <button id="pk_sdk_symptoms32" class="pk-sdk-hover diseasebox">
-						Bloody stools
-					</button>
+                        Bloody stools
+                    </button>
                     <button id="pk_sdk_symptoms33" class="pk-sdk-hover diseasebox">
-						Fecal leakage
-					</button>
+                        Fecal leakage
+                    </button>
                     <button id="pk_sdk_symptoms34" class="pk-sdk-hover diseasebox">
-						Muscle cramps
-					</button>
+                        Muscle cramps
+                    </button>
                     <button id="pk_sdk_symptoms35" class="pk-sdk-hover diseasebox">
-						Abdominal pain
-					</button>
+                        Abdominal pain
+                    </button>
                     <button id="pk_sdk_symptoms36" class="pk-sdk-hover diseasebox">
-						Weight loss
-					</button>
+                        Weight loss
+                    </button>
                     <button id="pk_sdk_symptoms37" class="pk-sdk-hover diseasebox">
-						Dizziness
-					</button>
+                        Dizziness
+                    </button>
                     <button id="pk_sdk_symptoms38" class="pk-sdk-hover diseasebox">
-						Sweat
-					</button>
+                        Sweat
+                    </button>
                     <button id="pk_sdk_symptoms39" class="pk-sdk-hover diseasebox">
-						More urine
-					</button>
+                        More urine
+                    </button>
                     <button id="pk_sdk_symptoms40" class="pk-sdk-hover diseasebox">
-						Bleed
-					</button>
+                        Bleed
+                    </button>
                     <button id="pk_sdk_symptoms41" class="pk-sdk-hover diseasebox">
-						Neck pain
-					</button>
+                        Neck pain
+                    </button>
                     <button id="pk_sdk_symptoms42" class="pk-sdk-hover diseasebox">
-						Rash
-					</button>
+                        Rash
+                    </button>
                     <button id="pk_sdk_symptoms43" class="pk-sdk-hover diseasebox">
-						Muscle spasm
-					</button>
+                        Muscle spasm
+                    </button>
                     <button id="pk_sdk_symptoms44" class="pk-sdk-hover diseasebox">
-						Breath problems
-					</button>
+                        Breath problems
+                    </button>
                     <button id="noneof3" class="pk-sdk-hover diseasebox noneofthese">
-						None of these
-					</button>
+                        None of these
+                    </button>
                 </div>
             </div>
             <div class="form-actions">
@@ -354,48 +357,48 @@
             <div class="category_wrapper bag bag4">
                 <div id="symptomsWrapper" class="diseaseSuggestion">
                     <button id="pk_sdk_symptoms45" class="pk-sdk-hover diseasebox">
-						Anus swelling
-					</button>
+                        Anus swelling
+                    </button>
                     <button id="pk_sdk_symptoms46" class="pk-sdk-hover diseasebox">
-						Thirsty
-					</button>
+                        Thirsty
+                    </button>
                     <button id="pk_sdk_symptoms47" class="pk-sdk-hover diseasebox">
-						Anus itching
-					</button>
+                        Anus itching
+                    </button>
                     <button id="pk_sdk_symptoms48" class="pk-sdk-hover diseasebox">
-						Decreased appetite
-					</button>
+                        Decreased appetite
+                    </button>
                     <button id="pk_sdk_symptoms49" class="pk-sdk-hover diseasebox">
-						Wheezing
-					</button>
+                        Wheezing
+                    </button>
                     <button id="pk_sdk_symptoms50" class="pk-sdk-hover diseasebox">
-						Diarrhea
-					</button>
+                        Diarrhea
+                    </button>
                     <button id="pk_sdk_symptoms51" class="pk-sdk-hover diseasebox">
-						Blood o tissue
-					</button>
+                        Blood o tissue
+                    </button>
                     <button id="pk_sdk_symptoms52" class="pk-sdk-hover diseasebox">
-						Neck stiff
-					</button>
+                        Neck stiff
+                    </button>
                     <button id="pk_sdk_symptoms53" class="pk-sdk-hover diseasebox">
-						Lump anus
-					</button>
+                        Lump anus
+                    </button>
                     <button id="pk_sdk_symptoms54" class="pk-sdk-hover diseasebox">
-						Anxiety
-					</button>
+                        Anxiety
+                    </button>
                     <button id="pk_sdk_symptoms55" class="pk-sdk-hover diseasebox">
-						Bleeding
-					</button>
+                        Bleeding
+                    </button>
                     <button id="pk_sdk_symptoms56" class="pk-sdk-hover diseasebox">
-						Hives
-					</button>
+                        Hives
+                    </button>
                     <button id="noneof4" class="pk-sdk-hover diseasebox noneofthese">
-						None of these
-					</button>
+                        None of these
+                    </button>
                 </div>
             </div>
             <div class="form-actions">
-                <a href="#alert"><button id="nextBtn4" class="btn btn-primary btn-lg">Submit</button></a>
+                <a href="#navigation"><button id="nextBtn4" class="btn btn-primary btn-lg">Submit</button></a>
             </div>
         </div>
 
