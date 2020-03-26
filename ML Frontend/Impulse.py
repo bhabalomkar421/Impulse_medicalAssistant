@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, send_file
+from flask import Flask, render_template, request, url_for, send_file, flash
 import pickle
 import numpy as np
 import os
@@ -7,7 +7,7 @@ import CurrentStats
 # import warnings
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = '73a4b6ca8cb647a20b71423e31492452'
 
 # For Coronavirus
 with open("Models\Coronavirus_logistic", "rb") as f:
@@ -61,7 +61,7 @@ def NonInfected():
 
 @app.route("/download")
 def Download():
-    file = "static/LabReport.png"
+    file = "static/Format.jpg"
     return send_file(file, as_attachment=True)
 
 
@@ -69,8 +69,14 @@ def Download():
 def BreastCancer():
     if request.method == "POST":
         f = request.files['inputFile']
-        f.save(os.path.join("Received_Files", f.filename))
 
+        name, extension = os.path.splitext(f.filename)
+        print(extension)
+        if extension == ".png" or extension == ".jpg" or extension == ".jpeg":
+            print("File Saved !")
+            f.save(os.path.join("Received_Files", f.filename))
+        else:
+            flash("Please upload files with extension 'png' , 'jpg' or 'jpeg'")
     return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
 
 

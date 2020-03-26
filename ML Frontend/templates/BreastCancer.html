@@ -4,11 +4,23 @@
 <h4 class="text-center"><a href="{{ url_for('Download') }}"> Download Format</a></h4>
 <br><br>
 <div class="col-lg-4 container">
+    <div class="row">
+        <div class="col-md-12">
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+            <div class="alert alert-danger">
+                {{ messages[0][1] }}
+            </div>
+            {% endif %} {% endwith %} {% block content %}{% endblock %}
+        </div>
+    </div>
+
+
 
     <form action="/BreastCancer" enctype="multipart/form-data" method="POST">
         <div class="form-group border border-dark rounded-lg  p-4">
-            <label for="exampleFormControlFile1">Upload Your Lab report</label>
-            <input type="file" class="form-control-file" name="inputFile" id="exampleFormControlFile1" required>
+            <h6>Upload Your Lab report in png , jpg or jpeg format only</h6>
+            <h6></h6>
+            <input type="file" accept="image/*" class="form-control-file" name="inputFile" id="exampleFormControlFile1" required>
         </div>
         <br><br>
         <div class="form-actions">
