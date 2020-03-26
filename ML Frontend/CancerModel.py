@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 ImagePath1 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport.png"
 ImagePath2 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport1.png"
-ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\Sample2.png"
+ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\static\sample.png"
 
 
 def get_string(img_path):
@@ -33,12 +33,12 @@ def get_string(img_path):
     #img = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 2)
 
     # Write the image after apply opencv to do some ...
-    # cv2.imwrite("thres.png", img)
+    cv2.imwrite("thres.png", img)
 
     # Recognize text with tesseract for python
-    # result = pytesseract.image_to_string(Image.open("thres.png"))
-    result = pytesseract.image_to_string(img_path)
-    # os.remove("thres.png")
+    result = pytesseract.image_to_string(Image.open("thres.png"))
+
+    os.remove("thres.png")
 
     return result
 

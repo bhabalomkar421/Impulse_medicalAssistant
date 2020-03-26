@@ -32,8 +32,7 @@ def Homepage():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    """Return a custom 404 error."""
-    return 'Sorry, nothing at this URL.', 404
+    return render_template("PageNotFound.html")
 
 
 @app.route("/currentstats", methods=["POST", "GET"])
@@ -183,4 +182,4 @@ def Coronavirus():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="14444", debug=True, threaded=True)
+    app.run(host="0.0.0.0", port=14444, debug=True, threaded=True)
