@@ -14,11 +14,15 @@
             scroll-behavior: smooth;
             }
 
-        #alert{
-            display: none;
-            margin-top: 15px;
+        .ale{
             margin-bottom: 15px;
+            margin-top: 20px;
+            display: none;            
+            font-weight: bold;
+            background-color: red;
+            color: black;
         }
+
         .diseasebox {
             color: rgb(0, 204, 0);
             font-size: 1.5rem;
@@ -145,8 +149,10 @@
     </nav>
     <div class="container">
         <br>
-        <div id="alert" class="alert alert-warning" role="alert">
-            This is a warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        <div id="alert" class="ale">
+        <div class="alert alert-danger" role="alert">
+            Please Enter minimum 5 and maximum 8 symptoms!!!
+        </div>
         </div>
         <div class="row">
             <div class="col-4">
@@ -389,7 +395,7 @@
                 </div>
             </div>
             <div class="form-actions">
-                <button id="nextBtn4" class="btn btn-primary btn-lg">Submit</button>
+                <a href="#alert"><button id="nextBtn4" class="btn btn-primary btn-lg">Submit</button></a>
             </div>
         </div>
 

@@ -260,8 +260,13 @@ n4.addEventListener("click",function(){
 
 
 	function funny(p){
-		if(p.length< 5){
-		document.querySelector(".alert").style.display="inline";
+		if(p.length < 5){
+		document.querySelector("#alert").style.display="inline";
+		console.log(p.length);
+		console.log("working");
+		}
+		if(p.length >= 9){
+		document.querySelector("#alert").style.display="inline";
 		console.log(p.length);
 		console.log("working");
 		}
