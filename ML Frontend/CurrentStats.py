@@ -27,9 +27,9 @@ def currentStatus():
     itemList = myDataStr.split("\n")
 
     # print(itemList)
-    tempList = int(itemList[-11]) + int(itemList[-9]
-                                        ), int(itemList[-6]), int(itemList[-3])
-    # print(tempList)
+    tempList = int(itemList[-11].strip('#')) + int(itemList[-9].strip('#')
+                                                   ), int(itemList[-6].strip('#')), int(itemList[-3].strip('#'))
+    print(tempList)
 
     return tempList
 
