@@ -7,4 +7,6 @@ from pdf2image.exceptions import (
 )
 with tempfile.TemporaryDirectory() as path:
 	images_from_path = convert_from_path('/home/omkar/Documents/Impulse_medicalAssistant/ML Frontend/templates/pdf_to_imageConvertor/pdfTest.pdf', output_folder='/home/omkar/Documents/Impulse_medicalAssistant/ML Frontend/templates/pdf_to_imageConvertor')
-	print("working")
+for image in images_from_path:
+    image.save('sample.png','PNG')
+print("working")
