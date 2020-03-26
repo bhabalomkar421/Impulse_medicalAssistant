@@ -50,26 +50,27 @@ def Predict(ImagePath1):
     print(result)
     final = []
 
-    final = result[-29:]
-    # for sentence in result:
-    #     pattern = ".* : (.*)"
-    #     output = re.search(pattern, sentence)
-    #     if output:
-    #         final.append(output.group(1))
+    # final = result[-29:]
+    for sentence in result:
+        pattern = ".* : (.*)"
+        output = re.search(pattern, sentence)
+        if output:
+            final.append(output.group(1))
 
-    # print()
-    # name = final[0]
-    # age = final[1]
-    # sex = final[2]
-    # reportID = final[3]
+    print()
+    name = final[0]
+    age = final[1]
+    sex = final[2]
+    reportID = final[3]
 
     # final = final[:-29]
+    final = final[4:]
     print(final)
     print("\n\n\n")
 
-    # print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
-    # print()
-    # print("Report final resuls :- \n", final)
+    print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
+    print()
+    print("Report final resuls :- \n", final)
 
     with open("Models/BreastCancer", "rb") as f:
         randomForest = pickle.load(f)
