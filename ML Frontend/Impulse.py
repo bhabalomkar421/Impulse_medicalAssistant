@@ -5,6 +5,9 @@ import os
 
 import CurrentStats
 import CancerModel
+import PdfConverter
+from PdfConverter import PDFPageCountError
+
 # import warnings
 
 app = Flask(__name__)
@@ -29,8 +32,7 @@ def Homepage():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    """Return a custom 404 error."""
-    return 'Sorry, nothing at this URL.', 404
+    return render_template("PageNotFound.html")
 
 
 @app.route("/currentstats", methods=["POST", "GET"])
@@ -68,7 +70,7 @@ def NonInfected():
 
 @app.route("/download")
 def Download():
-    file = "static/Format.jpg"
+    file = "static/Sample.docx"
     return send_file(file, as_attachment=True)
 
 
@@ -79,20 +81,33 @@ def BreastCancer():
 
         name, extension = os.path.splitext(f.filename)
         print(extension)
-        if extension == ".png" or extension == ".jpg" or extension == ".jpeg":
-            print("File Saved !")
-            location = os.path.join("Received_Files", f.filename)
-            f.save(location)
-            prediction = CancerModel.Predict(
-                os.path.join("Received_Files", f.filename))
-            print(prediction)
-            if prediction:
-                return render_template("Infected.htm")
-            else:
-                return render_template("NonInfected.htm")
+        try:
+            if extension == ".png" or extension == ".jpg" or extension == ".jpeg" or extension == ".pdf":
+                location = os.path.join("Received_Files", f.filename)
+                f.save(location)
+                print("File Saved !")
+                if extension == ".pdf":
+                    PdfConverter.Convert(f.filename)
+                    image = name + ".png"
+                    prediction = CancerModel.Predict(
+                        os.path.join("Received_Files", image))
+                else:
+                    prediction = CancerModel.Predict(
+                        os.path.join("Received_Files", f.filename))
+                print(prediction)
+                if prediction:
+                    return render_template("Infected.htm")
+                else:
+                    return render_template("NonInfected.htm")
 
-        else:
-            flash("Please upload files with extension 'png' , 'jpg' or 'jpeg'")
+            else:
+                flash(
+                    "Please upload files with extension 'png', 'pdf' , 'jpg' or 'jpeg'")
+
+        except ValueError:
+            flash("Please Upload Only Valid Files ")
+        except PDFPageCountError:
+            flash("Please Upload Only Valid Files , or try again later")
     return render_template("BreastCancer.html", title="Breast Cancer", navTitle="Breast Cancer", headText="Breast Cancer Probability Detector", ImagePath="/static/BreastCancer.jpg")
 
 
@@ -167,4 +182,4 @@ def Coronavirus():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=14444, debug=True)
+    app.run(host="0.0.0.0", port=14444, debug=True, threaded=True)

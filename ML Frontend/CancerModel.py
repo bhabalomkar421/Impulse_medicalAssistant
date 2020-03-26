@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 ImagePath1 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport.png"
 ImagePath2 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport1.png"
-ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\static\chalja.jpg"
+ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\static\sample.png"
 
 
 def get_string(img_path):
@@ -58,17 +58,17 @@ def Predict(ImagePath1):
             final.append(output.group(1))
 
     print()
-    name = final[0]
-    age = final[1]
-    sex = final[2]
-    reportID = final[3]
+    # name = final[0]
+    # age = final[1]
+    # sex = final[2]
+    # reportID = final[3]
 
     # final = final[:-29]
-    final = final[4:]
+    final = final[2:]
     print(final)
     print("\n\n\n")
 
-    print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
+    # print("Name : ", name, "\nAge : ", age, "\nSex : ", sex)
     print()
     print("Report final resuls :- \n", final)
 
