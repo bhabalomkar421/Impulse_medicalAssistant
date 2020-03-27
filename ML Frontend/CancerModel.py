@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 ImagePath1 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport.png"
 ImagePath2 = "D:\IT\Hackathon\Impulse\Prediction\Breast Cancer Prediction\Images\LabReport1.png"
-ImagePath3 = "D:\IT\Hackathon\Impulse\ML Frontend\static\sample.png"
+ImagePath3 = "D: \IT\Hackathon\Impulse\ML Frontend\Test1.png"
 
 
 def get_string(img_path):
@@ -50,12 +50,12 @@ def Predict(ImagePath1):
     print(result)
     final = []
 
-    # final = result[-29:]
-    for sentence in result:
-        pattern = ".* : (.*)"
-        output = re.search(pattern, sentence)
-        if output:
-            final.append(output.group(1))
+    final = result[-29:]
+    # for sentence in result:
+    #     pattern = ".* : (.*)"
+    #     output = re.search(pattern, sentence)
+    #     if output:
+    #         final.append(output.group(1))
 
     print()
     # name = final[0]
@@ -64,7 +64,7 @@ def Predict(ImagePath1):
     # reportID = final[3]
 
     # final = final[:-29]
-    final = final[2:]
+    # final = final[2:]
     print(final)
     print("\n\n\n")
 
@@ -76,6 +76,7 @@ def Predict(ImagePath1):
         randomForest = pickle.load(f)
 
     pred = randomForest.predict([final])
+    print(pred)
     if pred[0]:
         print()
         print(colored("The cell is Malignant i.e its cancerus cell", "red"))
@@ -83,8 +84,9 @@ def Predict(ImagePath1):
     else:
         print()
         print(colored("The cell is Benign i.e the patient is safe", "green"))
-        return 2
+        return 0
 
 
 if __name__ == '__main__':
-    Predict(ImagePath3)
+    # Predict("Test2.png")
+    pass

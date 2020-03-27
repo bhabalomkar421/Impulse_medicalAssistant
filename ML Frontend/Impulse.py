@@ -70,7 +70,7 @@ def NonInfected():
 
 @app.route("/download")
 def Download():
-    file = "static/Sample.docx"
+    file = "static/Example.docx"
     return send_file(file, as_attachment=True)
 
 

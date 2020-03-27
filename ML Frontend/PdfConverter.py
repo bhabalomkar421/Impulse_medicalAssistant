@@ -7,15 +7,17 @@ from pdf2image.exceptions import (
     PDFSyntaxError
 )
 
-outputPath = "D:\\IT\\Hackathon\\Impulse\\ML Frontend\\Received_Files\\"
+# outputPath = "D:\\IT\\Hackathon\\Impulse\\ML Frontend\\Received_Files\\"
+outputPath = "Received_Files\\"
 
 
 def Convert(PdfFile):
     ImageName, extension = os.path.splitext(PdfFile)
     print("\n", ImageName, "\n", extension)
     with tempfile.TemporaryDirectory() as path:
-        images_from_path = convert_from_path(
-            PdfFile, output_folder='D:\\IT\\Hackathon\\Impulse\\ML Frontend\\Received_Files')
+        images_from_path = convert_from_path(os.path.join(
+            outputPath + PdfFile), output_folder=outputPath)
+    print("Before Path WOrking")
     Image = os.path.join(outputPath, str(ImageName).strip() + ".png")
     for image in images_from_path:
         image.save(Image, 'PNG')
@@ -23,5 +25,5 @@ def Convert(PdfFile):
 
 
 if __name__ == '__main__':
-    Convert('Sample2.pdf')
+    Convert('Test3.pdf')
     # pass
