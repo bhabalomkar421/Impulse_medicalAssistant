@@ -152,36 +152,34 @@ def Heart_disease():
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
 def DiseasePrediction():
     data = ""
+    s = {}
+    count = 1
     if request.method == "POST":
-        rf = request.form
-        rf[0]
-        # print(str(rf[0]))
-
-        # symptoms = list(rf["symp"])
-        # print(symptoms)
-        # print(rf['symp'])
-        # for key in rf.values():
-        #     data = key
-        #     print(key)
-
-        # data_dic = json.loads(data)
-        # print(data.values())
-        # symp_data = data_dic['symp']
-        # for i in symp_data:
-        # print(i)
+        if count == 1:
+            rf = request.form
+            for key in rf.keys():
+                data = key
+                print(key)
+                # symptoms = key['symp']
+                print("*************", "   ", count)
+                s = key
+                pleaseChalja(s)
+                print(s)
+                s = str(s)
+                s = s.split(":")
+                temp = s[1].strip("}")
+                pleaseChalja(temp)
+            count += 1
+        else:
+            count += 1
     return render_template("DiseasePrediction.html")
 
 
-# rf = request.form
-# print(rf)
-# for key in rf.keys():
-# 	data = key
-# print(data)
-# data_dic = json.loads(data)
-# print(data_dic.keys())
-# symp_data = data_dic['symp']
-# for i in symp_data:
-#     print(i)
+def pleaseChalja(allSymptoms):
+    print("###################")
+    print(allSymptoms)
+    # print(str(allSymptoms).split[":"][1])
+
 
 @app.route("/CKD", methods=["POST", "GET"])
 def CKD():

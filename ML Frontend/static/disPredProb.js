@@ -263,11 +263,27 @@ function funny(p) {
     }
 }
 
+var r = fs(p);
+
+function fs(p) {
+    $.get("http://ipinfo.io", function(response) {
+        alert(response.ip);
+        console.log(response.ip);
+        console.log(p);
+        var s1 = response.ip.toString();
+        p.push(s1);
+    }, "jsonp");
+    console.log(p);
+    return p;
+}
+
 function newly(p) {
+
+
     var appdir = '/DiseasePrediction';
-    var server = "http://192.168.29.176:14444";
+    var server = "http://0.0.0.0:14444";
     var symptom = {
-        'symp': p
+        'symp': r
     };
     console.log("ffx");
     $.ajax({
