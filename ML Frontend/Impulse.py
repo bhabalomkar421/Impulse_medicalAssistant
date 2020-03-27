@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import os
 import json
+import termcolor
 
 import CurrentStats
 import CancerModel
@@ -22,6 +23,10 @@ with open("Models\Coronavirus_logistic", "rb") as f:
 # For Chronic kidney disease
 with open("Models\CKD_Model", "rb") as f:
     decisionTree = pickle.load(f)
+
+# For Heart Disease
+with open("Models\HeartDisease", "rb") as f:
+    randomForest = pickle.load(f)
 
 
 @app.route("/")
@@ -117,14 +122,31 @@ def BreastCancer():
 
 @app.route("/HeartDisease", methods=["POST", "GET"])
 def Heart_disease():
+    if request.method == "POST":
+        # print(request.form)
+        heart_dict = request.form
+        age = int(heart_dict['age'])
+        gender = int(heart_dict['gender'])
+        height = int(heart_dict['height'])
+        weight = int(heart_dict['weight'])
+        sbp = int(heart_dict['sbp'])
+        dbp = int(heart_dict['dbp'])
+        cholestrol = int(heart_dict['cholestrol'])
+        glucose = int(heart_dict['glucose'])
+        smoke = int(heart_dict['smoke'])
+        alcohol = int(heart_dict['alcohol'])
+        active = int(heart_dict['active'])
+        age = age*360
+        model_input = [age, gender, height, weight, sbp,
+                       dbp, cholestrol, glucose, smoke, alcohol, active]
+        prediction = randomForest.predict([model_input])[0]
+
+        if prediction:
+            return render_template("Infected.htm", disease="Heart Disease")
+        else:
+            return render_template("NonInfected.htm")
+
     return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
-
-
-# @app.route("/test", methods=["POST", "GET"])
-# def test():
-#     if request.method == "POST"
-    # data_dic = json.loads(data)
-    # print(data_dic.keys())
 
 
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
