@@ -4,29 +4,12 @@
 
 </style>
 <div class="container">
+    {% if state %}
+    <h2 class="text-center font-weight-bold">Current {{ state }} Situation</h2>
+    {% else %}
     <h2 class="text-center font-weight-bold">Current India Situation</h2>
+    {% endif %}
     <br />
-    <!-- <div class="col-3 mx-auto px-2">
-        <div class="card text-center" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <h5 class="font-weight-bold">
-                        Total Cases : {{ cases }}
-                    </h5>
-                </li>
-                <li class="list-group-item">
-                    <h5 class="font-weight-bold">
-                        Total Cured : {{ cured }}
-                    </h5>
-                </li>
-                <li class="list-group-item">
-                    <h5 class="font-weight-bold">
-                        Total Death : {{ death }}
-                    </h5>
-                </li>
-            </ul>
-        </div>
-    </div> -->
     <div class="col-md-4 mx-auto ">
         <div class="card text-center">
             <div class="col align-self-center">

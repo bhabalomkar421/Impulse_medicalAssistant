@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, url_for, send_file, flash
+from flask import Flask, render_template, request, url_for, send_file, flash, redirect
 import pickle
 import numpy as np
 import os
+import json
+import termcolor
 
 import CurrentStats
 import CancerModel
@@ -22,6 +24,10 @@ with open("Models\Coronavirus_logistic", "rb") as f:
 with open("Models\CKD_Model", "rb") as f:
     decisionTree = pickle.load(f)
 
+# For Heart Disease
+with open("Models\HeartDisease", "rb") as f:
+    randomForest = pickle.load(f)
+
 
 @app.route("/")
 @app.route("/home")
@@ -40,12 +46,15 @@ def CurrentStatus():
     cases, cured, death = CurrentStats.currentStatus()
     scases = scured = sdeath = 0
     state = ""
-    if request.method == "POST":
-        # print(request.form)
-        formDict = request.form
-        state = formDict['state']
-        scases, scured, sdeath = CurrentStats.StateStatus(state)
-    return render_template("CoronavirusState.html", state=state, scases=scases, scured=scured, sdeath=sdeath, cases=cases, cured=cured, death=death, title="Current Statistics", navTitle="Current Status", headText="Caronavirus Current Stats Statewise", ImagePath="/static/Virus.png")
+    try:
+        if request.method == "POST":
+            # print(request.form)
+            formDict = request.form
+            state = formDict['state']
+            scases, scured, sdeath = CurrentStats.StateStatus(state)
+    except UnboundLocalError:
+        flash("The State is not Effected Yet")
+    return render_template("CurrentStats.html", state=state, scases=scases, scured=scured, sdeath=sdeath, cases=cases, cured=cured, death=death, title="Current Statistics", navTitle="Current Status", headText="Caronavirus Current Stats Statewise", ImagePath="/static/Virus.png")
 
 
 @app.route("/about")
@@ -60,7 +69,7 @@ def Contact():
 
 @app.route("/infected")
 def Infected():
-    return render_template("Infected.htm")
+    return render_template("Infected.htm", disease="Nothing")
 
 
 @app.route("/noninfected")
@@ -96,7 +105,7 @@ def BreastCancer():
                         os.path.join("Received_Files", f.filename))
                 print(prediction)
                 if prediction:
-                    return render_template("Infected.htm")
+                    return render_template("Infected.htm", disease="Breast Cancer ")
                 else:
                     return render_template("NonInfected.htm")
 
@@ -113,11 +122,39 @@ def BreastCancer():
 
 @app.route("/HeartDisease", methods=["POST", "GET"])
 def Heart_disease():
+    if request.method == "POST":
+        # print(request.form)
+        heart_dict = request.form
+        age = int(heart_dict['age'])
+        gender = int(heart_dict['gender'])
+        height = int(heart_dict['height'])
+        weight = int(heart_dict['weight'])
+        sbp = int(heart_dict['sbp'])
+        dbp = int(heart_dict['dbp'])
+        cholestrol = int(heart_dict['cholestrol'])
+        glucose = int(heart_dict['glucose'])
+        smoke = int(heart_dict['smoke'])
+        alcohol = int(heart_dict['alcohol'])
+        active = int(heart_dict['active'])
+        age = age*360
+        model_input = [age, gender, height, weight, sbp,
+                       dbp, cholestrol, glucose, smoke, alcohol, active]
+        prediction = randomForest.predict([model_input])[0]
+
+        if prediction:
+            return render_template("Infected.htm", disease="Heart Disease")
+        else:
+            return render_template("NonInfected.htm")
+
     return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
 
 
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
 def DiseasePrediction():
+    if request.method == "POST":
+        print(request.form)
+        # data_dic = json.loads(data)
+        # print(data_dic.keys())
     return render_template("DiseasePrediction.html")
 
 
@@ -136,7 +173,7 @@ def CKD():
         prediction = decisionTree.predict([ckd_inputs1])
         # print("**************             ", prediction)
         if not prediction:
-            return render_template("Infected.htm")
+            return render_template("Infected.htm", disease="Chronic Kidney Disease")
         else:
             return render_template("NonInfected.htm")
 
@@ -174,7 +211,7 @@ def Coronavirus():
         prediction = logisticRegression.predict([model_inputs])[0]
         # print("**************             ", prediction)
         if prediction:
-            return render_template("Infected.htm")
+            return render_template("Infected.htm", disease="Coronavirus")
         else:
             return render_template("NonInfected.htm")
 
