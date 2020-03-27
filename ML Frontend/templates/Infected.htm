@@ -39,9 +39,9 @@
     </nav>
 
     <div class="card">
-        <h5 class="card-header text-center">Danger</h5>
+        <h5 class="card-header text-center text-danger font-weight-bold">Danger</h5>
         <div class="card-body">
-            <h5 class="card-title text-danger text-center">You maybe suffering from Coronavirus</h5>
+            <h5 class="card-title text-danger text-center">You maybe suffering from {{ disease }}</h5>
             <p class="card-text text-center">Please contact nearest hospitals</p>
             <div class="form-actions">
                 <a href="{{ url_for('Homepage') }}" class="btn btn-danger">Return to Home</a>

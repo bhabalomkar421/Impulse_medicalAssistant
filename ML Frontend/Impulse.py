@@ -60,7 +60,7 @@ def Contact():
 
 @app.route("/infected")
 def Infected():
-    return render_template("Infected.htm")
+    return render_template("Infected.htm", disease="Nothing")
 
 
 @app.route("/noninfected")
@@ -96,7 +96,7 @@ def BreastCancer():
                         os.path.join("Received_Files", f.filename))
                 print(prediction)
                 if prediction:
-                    return render_template("Infected.htm")
+                    return render_template("Infected.htm", disease="Breast Cancer ")
                 else:
                     return render_template("NonInfected.htm")
 
@@ -136,7 +136,7 @@ def CKD():
         prediction = decisionTree.predict([ckd_inputs1])
         # print("**************             ", prediction)
         if not prediction:
-            return render_template("Infected.htm")
+            return render_template("Infected.htm", disease="Chronic Kidney Disease")
         else:
             return render_template("NonInfected.htm")
 
@@ -174,7 +174,7 @@ def Coronavirus():
         prediction = logisticRegression.predict([model_inputs])[0]
         # print("**************             ", prediction)
         if prediction:
-            return render_template("Infected.htm")
+            return render_template("Infected.htm", disease="Coronavirus")
         else:
             return render_template("NonInfected.htm")
 
