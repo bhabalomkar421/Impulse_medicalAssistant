@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, url_for, send_file, flash
+from flask import Flask, render_template, request, url_for, send_file, flash, redirect
 import pickle
 import numpy as np
 import os
+import json
 
 import CurrentStats
 import CancerModel
@@ -40,12 +41,15 @@ def CurrentStatus():
     cases, cured, death = CurrentStats.currentStatus()
     scases = scured = sdeath = 0
     state = ""
-    if request.method == "POST":
-        # print(request.form)
-        formDict = request.form
-        state = formDict['state']
-        scases, scured, sdeath = CurrentStats.StateStatus(state)
-    return render_template("CoronavirusState.html", state=state, scases=scases, scured=scured, sdeath=sdeath, cases=cases, cured=cured, death=death, title="Current Statistics", navTitle="Current Status", headText="Caronavirus Current Stats Statewise", ImagePath="/static/Virus.png")
+    try:
+        if request.method == "POST":
+            # print(request.form)
+            formDict = request.form
+            state = formDict['state']
+            scases, scured, sdeath = CurrentStats.StateStatus(state)
+    except UnboundLocalError:
+        flash("The State is not Effected Yet")
+    return render_template("CurrentStats.html", state=state, scases=scases, scured=scured, sdeath=sdeath, cases=cases, cured=cured, death=death, title="Current Statistics", navTitle="Current Status", headText="Caronavirus Current Stats Statewise", ImagePath="/static/Virus.png")
 
 
 @app.route("/about")
@@ -116,8 +120,19 @@ def Heart_disease():
     return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
 
 
+# @app.route("/test", methods=["POST", "GET"])
+# def test():
+#     if request.method == "POST"
+    # data_dic = json.loads(data)
+    # print(data_dic.keys())
+
+
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
 def DiseasePrediction():
+    if request.method == "POST":
+        print(request.form)
+        # data_dic = json.loads(data)
+        # print(data_dic.keys())
     return render_template("DiseasePrediction.html")
 
 
