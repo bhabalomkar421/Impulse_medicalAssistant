@@ -239,6 +239,7 @@ n4.addEventListener("click", function() {
             }
             if (i == 55) {
                 funny(p);
+                newly(p);
                 //-------
 
             }
@@ -255,39 +256,35 @@ function funny(p) {
     if (p.length < 5) {
         document.querySelector("#alert").style.display = "inline";
         console.log(p.length);
-        console.log("working");
     }
     if (p.length >= 9) {
         document.querySelector("#alert").style.display = "inline";
         console.log(p.length);
-        console.log("working");
     }
 }
 
-$(document).ready(function() {
-    $("#nextBtn4").click(function(p) {
-        var appdir = '/DiseasePrediction';
-        var server = "http://192.168.29.176:14444";
-        var symptom = {
-            'symp': "TEst Working"
-        };
-        console.log("ffx");
-        $.ajax({
-            type: 'POST',
-            url: server + appdir,
-            data: "working",
-            dataType: 'json',
-        }).done(function(data) {
-            // p.forEach(element => {
-            //     console.log("Symptoms : - " + element)
-            // });
-            console.log("Symptoms : - ");
-            if (data.error) {
-                console.log("data.symptom");
-            } else {
-                console.log("Final Data is as Follow : - ")
-                console.log(data);
-            }
-        });
+function newly(p) {
+    var appdir = '/DiseasePrediction';
+    var server = "http://192.168.29.176:14444";
+    var symptom = {
+        'symp': p
+    };
+    console.log("ffx");
+    $.ajax({
+        type: 'POST',
+        url: server + appdir,
+        data: JSON.stringify(symptom),
+        dataType: 'json',
+    }).done(function(data) {
+        // p.forEach(element => {
+        //     console.log("Symptoms : - " + element)
+        // });
+        console.log(data);
+        if (data.error) {
+            console.log("data.symptom");
+        } else {
+            console.log("Final Data is as Follow : - ")
+            console.log(data);
+        }
     });
-});
+}

@@ -151,12 +151,37 @@ def Heart_disease():
 
 @app.route("/DiseasePrediction", methods=["POST", "GET"])
 def DiseasePrediction():
+    data = ""
     if request.method == "POST":
-        print(request.form)
+        rf = request.form
+        rf[0]
+        # print(str(rf[0]))
+
+        # symptoms = list(rf["symp"])
+        # print(symptoms)
+        # print(rf['symp'])
+        # for key in rf.values():
+        #     data = key
+        #     print(key)
+
         # data_dic = json.loads(data)
-        # print(data_dic.keys())
+        # print(data.values())
+        # symp_data = data_dic['symp']
+        # for i in symp_data:
+        # print(i)
     return render_template("DiseasePrediction.html")
 
+
+# rf = request.form
+# print(rf)
+# for key in rf.keys():
+# 	data = key
+# print(data)
+# data_dic = json.loads(data)
+# print(data_dic.keys())
+# symp_data = data_dic['symp']
+# for i in symp_data:
+#     print(i)
 
 @app.route("/CKD", methods=["POST", "GET"])
 def CKD():
