@@ -1,9 +1,20 @@
 {% extends "layout.html" %}{% block contents %}
 
+<style>
+    .s {
+        width: 30%;
+    }
+    
+    @media screen and (min-device-width:320px) and (max-device-width:480px) {
+        .s {
+            width: 100%;
+        }
+    }
+</style>
 <div class="container">
     <h2 class="text-center font-weight-bold">Current India Situation</h2>
     <br />
-    <div class="col-3 mx-auto px-2">
+    <!-- <div class="col-3 mx-auto px-2">
         <div class="card text-center" style="width: 18rem;">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
@@ -23,7 +34,30 @@
                 </li>
             </ul>
         </div>
+    </div> -->
+    <div class="col mx-auto s">
+        <div class="card text-center">
+            <div class="col align-self-center">
+                <div class="row border border-light  justify-content-center p-2 ">
+                    <h5 class="font-weight-bold text-center">
+                        Total Cases : {{ cases }}
+                    </h5>
+                </div>
+                <div class="row border border-light justify-content-center p-2">
+                    <h5 class="font-weight-bold">
+                        Total Cured : {{ cured }}
+                    </h5>
+                </div>
+                <div class="row border border-light justify-content-center p-2">
+                    <h5 class="font-weight-bold">
+                        Total Death : {{ death }}
+                    </h5>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
     <br /><br />
 
