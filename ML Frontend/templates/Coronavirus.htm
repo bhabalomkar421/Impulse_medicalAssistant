@@ -1,5 +1,13 @@
 {% extends "layout.html" %} {% block contents %}
-
+<style>
+    /* @media only screen and (min-device-width:320px) and (max-device-width:480px) {
+        .ele {
+            width: 50%;
+            margin-left: 10%;
+            margin-right: 0%;
+            background-color: aqua;
+        } */
+</style>
 <br>
 <form class="container" action="/CoronavirusPrediction" method="POST">
     <div class="form-group">
@@ -13,7 +21,7 @@
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col-12 ele col-xl-4 col-lg-4 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Cough : </label>
             </div>
@@ -27,7 +35,7 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 ele col-xl-4 col-lg-4 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Cold : </label>
             </div>
@@ -41,7 +49,7 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 ele col-xl-4 col-lg-4 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Sore Throat : </label>
             </div>
@@ -57,8 +65,8 @@
         </div>
     </div>
     <br>
-    <div class="row">
-        <div class="col">
+    <div class="row  justify-content-center align-items-center">
+        <div class="col-12 ele col-xl-4 col-lg-4 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Body Pain : </label>
             </div>
@@ -72,7 +80,7 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 ele col-xl-4 col-lg-4 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Fatigue : </label>
             </div>
@@ -86,7 +94,7 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 ele col-xl-4">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Headache : </label>
             </div>
@@ -104,7 +112,7 @@
 
     <br>
     <div class="row">
-        <div class="col">
+        <div class="col-12 ele justify-content-center mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Diarrhea : </label>
             </div>
@@ -118,7 +126,7 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
         </div>
-        <div class="col">
+        <div class="col-12 ele justify-content-center mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-6">
             <div class="form-check form-check-inline">
                 <label class="font-weight-bold">Difficulty in breathing : </label>
             </div>
