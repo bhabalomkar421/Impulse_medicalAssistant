@@ -130,13 +130,28 @@
         </div>
         <br>
         <div class="card">
+            <h5 class="card-header text-center">Breast Cancer Center</h5>
+            <div class="card-body">
+                <h5 class="card-title text-center">It Makes Early Prediction whether you are having Breast Cancer or not , just by uploading
+                    <br> your Breast Cancer Lab Report</h5>
+                <p class="card-text text-center ">Please upload only <b>PNG</b> , <b>JPG</b> , <b>JPEG</b> or <b>PDF</b> files only with page limit of 1
+                </p>
+                <h5 class="card-text text-center">For reference please download the format<a href="{{ url_for('Download') }}">
+                        Download Format</a></h5>
+                <br>
+                <div class="form-actions">
+                    <a href="{{ url_for('BreastCancer') }}" class="btn btn-primary mx-5 btn-lg">Breast Cancer</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card">
             <h5 class="card-header text-center">Special Predictions Center</h5>
             <div class="card-body">
                 <h5 class="card-title text-center">Make Yourself Sure and Safe by Early Detection</h5>
                 <p class="card-text text-center">The Following Models need Medical Report inorder to predict.
                 </p>
                 <div class="form-actions">
-                    <a href="{{ url_for('BreastCancer') }}" class="btn btn-success mx-5 btn-lg">Breast Cancer</a>
                     <a href="{{ url_for('CKD') }}" class="btn btn-warning mx-5 btn-lg">Chronic Kidney Disease</a>
                     <a href="{{ url_for('Heart_disease') }}" class="btn btn-info mx-5 btn-lg">Heart Disease</a>
                 </div>
