@@ -19,7 +19,7 @@ def currentStatus():
 
     # gets only the table from whole html page
     myDataStr = ""
-    for tr in soup.find_all("tbody")[7].find_all("tr"):
+    for tr in soup.find_all("tbody")[9].find_all("tr"):
         myDataStr += tr.get_text()
 
     myDataStr = myDataStr[1:]
@@ -28,7 +28,7 @@ def currentStatus():
     # print(itemList)
     tempList = int(itemList[-11].strip('#')) + int(itemList[-9].strip('#')
                                                    ), int(itemList[-6].strip('#')), int(itemList[-3].strip('#'))
-    print(tempList)
+    # print(tempList)
 
     return tempList
 
@@ -42,7 +42,7 @@ def StateStatus(state):
 
     # gets only the table from whole html page
     myDataStr = ""
-    for tr in soup.find_all("tbody")[7].find_all("tr"):
+    for tr in soup.find_all("tbody")[9].find_all("tr"):
         myDataStr += tr.get_text()
 
     myDataStr = myDataStr[1:]
