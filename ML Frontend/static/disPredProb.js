@@ -279,7 +279,7 @@ function fs(p) {
 function newly(p) {
 
 
-    var appdir = '/DiseasePrediction';
+    var appdir = '/Disease';
     var server = "http://192.168.29.176:14444";
     var symptom = {
         'symp': r
@@ -288,6 +288,8 @@ function newly(p) {
     $.ajax({
         type: 'POST',
         url: server + appdir,
+        //contentType: "application/json;charset=utf-8",
+        traditional: "true",
         data: JSON.stringify(symptom),
         dataType: 'json',
     }).done(function(data) {

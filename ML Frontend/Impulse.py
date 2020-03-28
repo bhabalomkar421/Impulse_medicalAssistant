@@ -150,33 +150,33 @@ def Heart_disease():
     return render_template("HeartDisease.html", title="Heart Disease Detector", navTitle="Heart Disease Detector", headText="Heart Disease Probabilty Detector", ImagePath="/static/HeartPulse.png")
 
 
-@app.route("/DiseasePrediction", methods=["POST", "GET"])
+@app.route("/Disease", methods=["POST", "GET"])
 def DiseasePrediction():
     data = ""
     s = {}
     count = 1
     if request.method == "POST":
-        if count == 1:
-            rf = request.form
-            for key in rf.keys():
-                data = key
-                print(key)
-                # symptoms = key['symp']
-                print("*************", "   ", count)
-                s = key
-                pleaseChalja(s)
-                print(s)
-                s = str(s)
-                s = s.split(":")
-                temp = s[1].strip("}")
-                tset = pleaseChalja(temp)
-                print("pStill working")
-                return make_response(render_template("Infected.htm", disease="Chronic Kidney Disease"), 200)
+        rf = request.form
+        print(rf)
+        for key in rf.keys():
+            data = key
+            print(key)
+            # symptoms = key['symp']
+            print("*************", "   ", count)
+            s = key
+            pleaseChalja(s)
+            print(s)
+            s = str(s)
+            s = s.split(":")
+            temp = s[1].strip("}")
+            tset = pleaseChalja(temp)
+            if tset:
+                print("Inside")
                 return render_template("Infected.htm", disease="Chronic Kidney Disease")
-                return render_template("Infected.htm", disease="Chronic Kidney Disease")
-                print("aStill working")
-            count += 1
-    return render_template("DiseasePrediction.html")
+
+            print("aStill working")
+
+    return render_template("DiseasePredict.html")
 
 
 def pleaseChalja(allSymptoms):
@@ -196,8 +196,7 @@ def pleaseChalja(allSymptoms):
     prediction = DiseasePred.predicts(symptoms)
     # prediction = DiseasePred.Hello()
     print(prediction)
-    return render_template("Infected.htm", disease="Chronic Kidney Disease")
-    print("Still working")
+    return prediction
 
 
 @app.route("/CKD", methods=["POST", "GET"])
