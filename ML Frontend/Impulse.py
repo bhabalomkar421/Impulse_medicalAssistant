@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, send_file, flash, redirect
+from flask import Flask, render_template, request, url_for, send_file, flash, redirect, make_response
 import pickle
 import numpy as np
 import os
@@ -9,6 +9,7 @@ import CurrentStats
 import CancerModel
 import PdfConverter
 from PdfConverter import PDFPageCountError
+import DiseasePred
 
 # import warnings
 
@@ -168,17 +169,35 @@ def DiseasePrediction():
                 s = str(s)
                 s = s.split(":")
                 temp = s[1].strip("}")
-                pleaseChalja(temp)
-            count += 1
-        else:
+                tset = pleaseChalja(temp)
+                print("pStill working")
+                return make_response(render_template("Infected.htm", disease="Chronic Kidney Disease"), 200)
+                return render_template("Infected.htm", disease="Chronic Kidney Disease")
+                return render_template("Infected.htm", disease="Chronic Kidney Disease")
+                print("aStill working")
             count += 1
     return render_template("DiseasePrediction.html")
 
 
 def pleaseChalja(allSymptoms):
-    print("###################")
     print(allSymptoms)
-    # print(str(allSymptoms).split[":"][1])
+    test = allSymptoms.split(',')
+    test1 = []
+    print(type(allSymptoms))
+    for i in test:
+        test1.append(i.strip('"'))
+    test1[0] = test1[0].strip("[").strip('"')
+    test1[-1] = test1[-1].strip("]").strip("]}").strip('"')
+    print(test1)
+    print(type(test1))
+    ip = test1[0]
+    symptoms = test1[1:]
+    print(symptoms)
+    prediction = DiseasePred.predicts(symptoms)
+    # prediction = DiseasePred.Hello()
+    print(prediction)
+    return render_template("Infected.htm", disease="Chronic Kidney Disease")
+    print("Still working")
 
 
 @app.route("/CKD", methods=["POST", "GET"])
