@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Disease Prediction</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         .checkbox-lg .custom-control-label::before,
@@ -44,33 +44,6 @@
         .custom-control-input {
             margin-left: -15px;
         }
-        
-        .block2 {
-            display: grid;
-        }
-        
-        .block3 {
-            display: block;
-        }
-        
-        .block4 {
-            display: inline;
-        }
-        
-        #nextbtn2 {
-            display: inline;
-            /* visibility: hidden; */
-        }
-        
-        #nextBtn3 {
-            display: inline;
-            /* visibility: hidden; */
-        }
-        
-        #nextbtn4 {
-            display: inline;
-            /* visibility: hidden; */
-        }
     </style>
 </head>
 
@@ -90,7 +63,7 @@
                                 class=" sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('About') }}">About</a>
+                        <a class="nav-link" href="{{ url_for('About') }}">About Application</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('Contact') }}">Contact Us</a>
@@ -99,7 +72,7 @@
             </div>
         </nav>
     </div>
-    <br> <img src="Science.png" class="mx-auto d-block" alt="Responsive image" style="width: 150px; height:100px;">
+    <br> <img src="/static/Science.png" class="mx-auto d-block" alt="Responsive image" style="width: 150px; height:100px;">
 
     <br>
     <h1 class="text-center font-weight-bolder">Medical Condition Prediction</h1>
@@ -108,7 +81,12 @@
     <h2 class="text-center font-weight-bold">below (mark all those applicable)</h2>
     <br>
     <br>
+
+
+
+
     <form action="{{ url_for('Disease') }}" method="POST">
+
         <div class="container ">
             <div class="row ">
                 <div class="col-6 col-xl-3">
@@ -240,15 +218,18 @@
         </div> -->
             <br>
             <div class="text-center">
-                <a href="#t2"><button id="nextBtn1" type="button" class="btn btn-primary btn-lg">Next</button></a>
+                <a href="#section2"><button id="nextBtn1" type="button" class="btn btn-primary btn-lg">Next</button></a>
             </div>
 
 
 
 
 
+            <br>
+            <hr><br>
 
-            <div class="row block2">
+            <div class="row block2" id="section2">
+                <br><br>
                 <div class="col-6 col-xl-3">
                     <div class="custom-control custom-checkbox checkbox-lg">
 
@@ -285,7 +266,6 @@
             <div class="row block2">
                 <div class="col-6 col-xl-3">
                     <div class="custom-control custom-checkbox checkbox-lg">
-
                         <input type="checkbox" class="custom-control-input bg-light" id="defaultUnchecked53" name="chest_pain" value="chest_pain">
                         <label class="custom-control-label easy  " for="defaultUnchecked53"><span
                             class="label label-primary"><b>Chest Pain</b></span></label>
@@ -376,11 +356,13 @@
             <label class="custom-control-label easy  " for="defaultUnchecked"><span class="label label-primary"><b>None of these</b></span></label>
         </div>
     </div> -->
-            <!-- <br> -->
-            <div class="text-center">
-                <a href="#t2"><button id="nextbtn2" class="btn btn-primary btn-lg" type="button" >Next</button></a>
+            <br><br>
+            <div class="text-center" id="nb2">
+                <a href="#nb3"><button id="nextbtn2" class="btn btn-primary btn-lg" type="button" >Next</button></a>
             </div>
 
+            <br>
+            <hr><br>
 
 
 
@@ -524,14 +506,16 @@
     </div>
 </div> -->
             <!-- <br> -->
-            <div class="text-center">
-                <a href="#t2"><button id="nextBtn3" type="button" class="btn btn-primary btn-lg">Next</button></a>
+            <br><br><br>
+            <div class="text-center" id="nb3">
+                <a href="#nb4"><button id="nextBtn3" type="button" class="btn btn-primary btn-lg">Next</button></a>
             </div>
 
 
 
 
-
+            <br>
+            <hr><br>
 
 
 
@@ -671,7 +655,7 @@
 </div>
 </div> -->
             <br>
-            <div class="text-center">
+            <div class="text-center" id="nb4">
                 <a href="#t2"><button id="submit" type="submit" class="btn btn-primary btn-lg">Submit</button></a>
             </div>
         </div>
