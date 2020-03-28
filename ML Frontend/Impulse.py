@@ -239,9 +239,9 @@ def pleaseChalja(allSymptoms):
     print(prediction)
     return prediction
 
-
-@app.route("/test", methods=["POST", "GET"])
-def TEST():
+# <form action="{{ url_for('Disease') }}" method="POST"></form>
+@app.route("/diseaseprediction", methods=["POST", "GET"])
+def Disease():
     symptoms = []
     if request.method == "POST":
         rf = request.form
@@ -250,14 +250,14 @@ def TEST():
             print(key)
             symptoms.append(value)
         print(symptoms)
-        symptom = ['fever', 'vomiting', 'headache', 'sweating',
-                   'bloody_stools', 'abdominal_pain', 'diarrhea']
-        prediction = DiseasePred.predicts(symptom)
-        if prediction == "Malaria":
-            return render_template("Infected.htm", disease="Chronic Kidney Disease")
-        else:
-            return render_template("NonInfected.htm")
-    return render_template("test.html")
+        # symptom = ['fever', 'vomiting', 'headache', 'sweating',
+        #            'bloody_stools', 'abdominal_pain', 'diarrhea']
+        # prediction = DiseasePred.predicts(symptom)
+        # if prediction == "Malaria":
+        #     return render_template("Infected.htm", disease="Chronic Kidney Disease")
+        # else:
+        #     return render_template("NonInfected.htm")
+    return render_template("dp.html")
 
 
 @app.route("/CKD", methods=["POST", "GET"])
