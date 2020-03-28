@@ -61,8 +61,14 @@
             <h1 class="text-left mt-3 mx-0 font-weight-bolder">Impulse</h1>
         </div>
     </div>
-
-
+    {% if feedback == "True" %}
+    <div id="alert" class="container">
+        <br>
+        <div class="alert alert-success text-center font-weight-bold fon" role="alert">
+            <h5>Thanks for your Feedback !! </h5>
+        </div>
+    </div>
+    {% endif %}
     <br>
 
     <div class="card bg-gradient-info">
@@ -73,6 +79,9 @@
 
 
     <div class="container">
+        <br>
+
+
         <div class="table-responsive">
             <table cellspacing="1" cellpadding="25" class="table">
                 <thead>
@@ -131,7 +140,7 @@
             <h5 class="card-text ">It Predicts Whether you have Dengue, Heart-Attack, Paralysis , Hypertension and much more
             </h5>
             <br>
-            <a href="{{ url_for('DiseasePrediction') }}" class="btn btn-primary btn-lg">Track Now</a>
+            <a href="{{ url_for('Disease') }}" class="btn btn-primary btn-lg">Track Now</a>
         </div>
         <div class="card-footer text-muted">
             The Accuracy of Prediction is 95%

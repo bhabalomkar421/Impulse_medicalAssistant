@@ -4,6 +4,7 @@ import numpy as np
 import os
 import json
 import termcolor
+import smtplib
 
 import CurrentStats
 import CancerModel
@@ -34,7 +35,7 @@ with open("Models\HeartDisease", "rb") as f:
 @app.route("/home")
 def Homepage():
     cases, cured, death = CurrentStats.currentStatus()
-    return render_template("Homepage.html", cases=cases, cured=cured, death=death)
+    return render_template("Homepage.html", cases=cases, cured=cured, death=death, feedback="False")
 
 
 @app.errorhandler(404)
@@ -63,8 +64,39 @@ def About():
     return render_template("About.html")
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["POST", "GET"])
 def Contact():
+    if request.method == "POST":
+        # print(request.form)
+        contactDict = request.form
+        firstname = contactDict['firstname']
+        lastname = contactDict['lastname']
+        email = contactDict['email']
+        phone = int(contactDict['phone'])
+        description = contactDict['description']
+
+        subject = "Medical Website feedback !!"
+        message = f"First Name : {firstname} \nLast Name : {lastname} \nEmail : {email}\nPhone Number : {phone}\nDescription : {description}\n"
+        content = f"Subject : {subject} \n\n{message}"
+        sender = "intmain1221@gmail.com"
+        receiver = "intmain1221@gmail.com"
+        password = "intmain@11"
+
+        print(content)
+        try:
+            with smtplib.SMTP("smtp.gmail.com", 587) as mail:
+                mail.ehlo()
+                mail.starttls()
+                mail.login(sender, password)
+                mail.ehlo()
+                mail.sendmail(sender, receiver, content)
+
+            print("Mail Send Successfully !")
+            cases, cured, death = CurrentStats.currentStatus()
+            return render_template("Homepage.html", cases=cases, cured=cured, death=death, feedback="True")
+
+        except:
+            pass
     return render_template("Contact.html")
 
 
@@ -207,9 +239,9 @@ def pleaseChalja(allSymptoms):
     print(prediction)
     return prediction
 
-
-@app.route("/test", methods=["POST", "GET"])
-def TEST():
+# <form action="{{ url_for('Disease') }}" method="POST"></form>
+@app.route("/diseaseprediction", methods=["POST", "GET"])
+def Disease():
     symptoms = []
     if request.method == "POST":
         rf = request.form
@@ -218,14 +250,14 @@ def TEST():
             print(key)
             symptoms.append(value)
         print(symptoms)
-        symptom = ['fever', 'vomiting', 'headache', 'sweating',
-                   'bloody_stools', 'abdominal_pain', 'diarrhea']
-        prediction = DiseasePred.predicts(symptom)
-        if prediction == "Malaria":
-            return render_template("Infected.htm", disease="Chronic Kidney Disease")
-        else:
-            return render_template("NonInfected.htm")
-    return render_template("test.html")
+        # symptom = ['fever', 'vomiting', 'headache', 'sweating',
+        #            'bloody_stools', 'abdominal_pain', 'diarrhea']
+        # prediction = DiseasePred.predicts(symptom)
+        # if prediction == "Malaria":
+        #     return render_template("Infected.htm", disease="Chronic Kidney Disease")
+        # else:
+        #     return render_template("NonInfected.htm")
+    return render_template("dp.html")
 
 
 @app.route("/CKD", methods=["POST", "GET"])
