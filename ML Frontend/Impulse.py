@@ -152,30 +152,40 @@ def Heart_disease():
 
 @app.route("/Disease", methods=["POST", "GET"])
 def DiseasePrediction():
-    data = ""
     s = {}
-    count = 1
+    prediction = ""
     if request.method == "POST":
         rf = request.form
         print(rf)
         for key in rf.keys():
             data = key
             print(key)
-            # symptoms = key['symp']
-            print("*************", "   ", count)
             s = key
-            pleaseChalja(s)
+            # pleaseChalja(s)
             print(s)
             s = str(s)
             s = s.split(":")
             temp = s[1].strip("}")
-            tset = pleaseChalja(temp)
-            if tset:
-                print("Inside")
-                return render_template("Infected.htm", disease="Chronic Kidney Disease")
-
-            print("aStill working")
-
+            # tset = pleaseChalja(temp)
+        allSymptoms = temp
+        print(allSymptoms)
+        test = allSymptoms.split(',')
+        test1 = []
+        print(type(allSymptoms))
+        for i in test:
+            test1.append(i.strip('"'))
+        test1[0] = test1[0].strip("[").strip('"')
+        test1[-1] = test1[-1].strip("]").strip("]}").strip('"')
+        print(test1)
+        print(type(test1))
+        ip = test1[0]
+        symptoms = test1[1:]
+        print(symptoms)
+        prediction = DiseasePred.predicts(symptoms)
+        if prediction:
+            return redirect("NonInfected.htm")
+        print(prediction)
+    print(prediction)
     return render_template("DiseasePredict.html")
 
 
@@ -194,9 +204,28 @@ def pleaseChalja(allSymptoms):
     symptoms = test1[1:]
     print(symptoms)
     prediction = DiseasePred.predicts(symptoms)
-    # prediction = DiseasePred.Hello()
     print(prediction)
     return prediction
+
+
+@app.route("/test", methods=["POST", "GET"])
+def TEST():
+    symptoms = []
+    if request.method == "POST":
+        rf = request.form
+        print(rf)
+        for key, value in rf.items():
+            print(key)
+            symptoms.append(value)
+        print(symptoms)
+        symptom = ['fever', 'vomiting', 'headache', 'sweating',
+                   'bloody_stools', 'abdominal_pain', 'diarrhea']
+        prediction = DiseasePred.predicts(symptom)
+        if prediction == "Malaria":
+            return render_template("Infected.htm", disease="Chronic Kidney Disease")
+        else:
+            return render_template("NonInfected.htm")
+    return render_template("test.html")
 
 
 @app.route("/CKD", methods=["POST", "GET"])

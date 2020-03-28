@@ -2,11 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style type="text/css">
@@ -149,6 +146,11 @@
             </div>
         </nav>
     </div>
+
+
+
+
+
     <div class="container">
         <br>
         <div id="alert" class="ale">
@@ -171,9 +173,9 @@
         <h2 class="text-center font-weight-bold">below (mark all those applicable)</h2>
         <br>
 
-        <hr>
-
-
+        <hr> {% if prediction %}
+        <h1>Please chalja {{ prediction }}</h1>
+        {% endif %}
 
 
 
@@ -405,7 +407,7 @@
             </div>
             <form action="/Disease" method="POST">
                 <div class="form-actions">
-                    <a href="#navigation"></a><button id="nextBtn4" type="button" class="btn btn-primary btn-lg">Submit</button></a>
+                    <a href="#navigation"><button id="nextBtn4" type="button" class="btn btn-primary btn-lg">Submit</button></a>
                 </div>
             </form>
         </div>
