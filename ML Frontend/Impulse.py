@@ -169,7 +169,7 @@ def Heart_disease():
         smoke = int(heart_dict['smoke'])
         alcohol = int(heart_dict['alcohol'])
         active = int(heart_dict['active'])
-        age = age*360
+        age = age*365
         model_input = [age, gender, height, weight, sbp,
                        dbp, cholestrol, glucose, smoke, alcohol, active]
         prediction = randomForest.predict([model_input])[0]
@@ -251,7 +251,7 @@ def Disease():
             symptoms.append(value)
         print(symptoms)
         prediction = DiseasePred.predicts(symptoms)
-        if prediction == "Malaria":
+        if prediction:
             return render_template("Infected.htm", disease=prediction)
         else:
             return render_template("NonInfected.htm")
